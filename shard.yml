@@ -1,0 +1,9 @@
+name: openblas
+version: 0.1.0
+
+authors:
+  - Seth Hinz <sethhinz@me.com>
+
+crystal: 1.2.1
+
+license: MIT

@@ -1,4 +1,5 @@
-# line = "float int cblas_sdot(OPENBLAS_CONST blasint n, OPENBLAS_CONST float  *x, OPENBLAS_CONST blasint incx, OPENBLAS_CONST float  *y, OPENBLAS_CONST blasint incy);"
+require "ecr"
+
 WORD = /[^(),\s]+/
 FUNC_QUALIFIER = /(?:#{WORD}\s+(?!\())/
 FUNC_NAME = /#{WORD}(?=\s*\()/
@@ -7,36 +8,73 @@ FUNC_DECLARATION = /^(#{FUNC_QUALIFIER}+)(#{FUNC_NAME})/ # #{function_args};$/
 VAR_QUALIFIER = FUNC_QUALIFIER
 VAR_NAME = /#{WORD}(?=\s*[,\)])/
 
+ROOT = (Path[__DIR__] / "..").normalize
+HEADERS = {"cblas.h", "lapack.h"}
+MODULES = Hash(String, Array(CFunction)).new do |hash, missing_key|
+  new_arr = [] of CFunction
+  hash[missing_key] = new_arr
+  new_arr
+end
 
-# exit 0
+HEADERS.each do |name|
+  header_path = ROOT / name
+  header = File.read_lines(header_path)
 
-root = (Path[__DIR__] / "..").normalize
+  find_functions(header).each do |func|
+    MODULES[func.module] << func
+  end
+end
 
-header_path = root / "lapack.h"
-header = File.read_lines(header_path)
-functions = find_functions(header)
-puts functions.map(&.vars.map(&.[](0))).flatten.tally
-puts functions[0].to_crystal
-puts functions[0].get_module
+MODULES.each do |name, functions|
+  puts OutputFile.new(name, functions)
+end
+# puts functions.map(&.vars.map(&.[](0))).flatten.tally
+
+struct OutputFile
+  @module : String
+  @functions : Array(CFunction)
+
+  def initialize(@module, @functions)
+  end
+
+  ECR.def_to_s({{__DIR__ + "/binding_template.ecr"}})
+end
 
 # TODO
 def get_crystal_type(c_type) : String
-  # from blas: {"int" => 3, "size_t" => 1, "cpu_set_t*" => 1, "blasint" => 643, "float" => 153, "double" => 143, "void" => 268, "enum CBLAS_ORDER" => 112, "enum CBLAS_TRANSPOSE" => 75, "enum CBLAS_UPLO" => 78, "enum CBLAS_DIAG" => 32, "enum CBLAS_SIDE" => 14, "char" => 2, "float*" => 4, "double*" => 4, "bfloat16" => 10}
+  # from blas: {"int" => 3, "size_t" => 1, "cpu_set_t*" => 1, "blasint" => 643,
+  # "float" => 153, "double" => 143, "void" => 268, "enum CBLAS_ORDER" => 112,
+  # "enum CBLAS_TRANSPOSE" => 75, "enum CBLAS_UPLO" => 78, "enum CBLAS_DIAG" =>
+  # 32, "enum CBLAS_SIDE" => 14, "char" => 2, "float*" => 4, "double*" => 4,
+  # "bfloat16" => 10}
+
+  # from lapack: {"float" => 310, "double" => 310, "int" => 2377, "char" =>
+  # 3492, "lapack_int" => 10642, "float*" => 2616, "lapack_int*" => 1259,
+  # "double*" => 2630, "lapack_complex_float*" => 1361,
+  # "lapack_complex_double*" => 1373, "const float*" => 468, "const double*" =>
+  # 468, "const lapack_int*" => 324, "const lapack_complex_float*" => 432,
+  # "const lapack_complex_double*" => 432, "char*" => 76, "LAPACK_S_SELECT2" =>
+  # 4, "LAPACK_D_SELECT2" => 4, "LAPACK_C_SELECT1" => 4, "LAPACK_Z_SELECT1" =>
+  # 4, "LAPACK_S_SELECT3" => 6, "LAPACK_D_SELECT3" => 6, "LAPACK_C_SELECT2" =>
+  # 6, "LAPACK_Z_SELECT2" => 6, "lapack_logical*" => 40, "const
+  # lapack_logical*" => 48, "lapack_complex_float" => 10,
+  # "lapack_complex_double" => 10, "lapack_logical" => 48}
   case c_type
-  when "blasint"
+  when "blasint", "int"
     "LibC::Int" # https://github.com/xianyi/OpenBLAS/blob/b0a590f4fe3abd5618e376d85f72ea00a9032683/common.h#L277
+  else
+    "UnknownType"
   end  
-  "Int"
 end
 
 record CFunction, name : String, qualifiers : String, vars : Array(Tuple(String, String)), do
-  def get_module : String
+  def module : String
     prefix = @name[...@name.index("_")]
 
     case prefix
-    when "blas"
+    when "cblas"
        "BLAS"
-    when "openblas"
+    when "openblas", "goto"
        "OpenBLAS"
     when /lapack/i
        "LAPACK"
@@ -57,8 +95,6 @@ record CFunction, name : String, qualifiers : String, vars : Array(Tuple(String,
   end
 end
 
-# {"float" => 310, "double" => 310, "int" => 2377, "char" => 3492, "lapack_int" => 10642, "float*" => 2616, "lapack_int*" => 1259, "double*" => 2630, "lapack_complex_float*" => 1361, "lapack_complex_double*" => 1373, "const float*" => 468, "const double*" => 468, "const lapack_int*" => 324, "const lapack_complex_float*" => 432, "const lapack_complex_double*" => 432, "char*" => 76, "LAPACK_S_SELECT2" => 4, "LAPACK_D_SELECT2" => 4, "LAPACK_C_SELECT1" => 4, "LAPACK_Z_SELECT1" => 4, "LAPACK_S_SELECT3" => 6, "LAPACK_D_SELECT3" => 6, "LAPACK_C_SELECT2" => 6, "LAPACK_Z_SELECT2" => 6, "lapack_logical*" => 40, "const lapack_logical*" => 48, "lapack_complex_float" => 10, "lapack_complex_double" => 10, "lapack_logical" => 48}
-# {"int" => 3, "size_t" => 1, "cpu_set_t*" => 1, "blasint" => 643, "float" => 153, "double" => 143, "void" => 268, "enum CBLAS_ORDER" => 112, "enum CBLAS_TRANSPOSE" => 75, "enum CBLAS_UPLO" => 78, "enum CBLAS_DIAG" => 32, "enum CBLAS_SIDE" => 14, "char" => 2, "float*" => 4, "double*" => 4, "bfloat16" => 10}
 def parse_variables(line : String) : Array(Tuple(String, String))
   line.scan(/(#{VAR_QUALIFIER}+)(#{VAR_NAME})/).map do |match|
     _, qualifiers, name = match

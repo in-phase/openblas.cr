@@ -1,0 +1,3 @@
+module <%= @module == "OpenBLAS" ? "OpenBLAS" : "OpenBLAS::#{@module}" %>
+    <%= @functions.map &.name %>
+end

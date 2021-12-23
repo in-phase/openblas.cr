@@ -10,7 +10,7 @@ VAR_NAME = /#{WORD}(?=\s*[,\)])/
 
 ROOT = (Path[__DIR__] / "..").normalize
 HEADERS = {"cblas.h", "lapack.h"}
-MODULES = Hash(String, Array(CFunction)).new do |hash, missing_key|
+NAMESPACES = Hash(String, Array(CFunction)).new do |hash, missing_key|
   new_arr = [] of CFunction
   hash[missing_key] = new_arr
   new_arr
@@ -21,20 +21,20 @@ HEADERS.each do |name|
   header = File.read_lines(header_path)
 
   find_functions(header).each do |func|
-    MODULES[func.module] << func
+    NAMESPACES[func.namespace] << func
   end
 end
 
-MODULES.each do |name, functions|
+NAMESPACES.each do |name, functions|
   puts OutputFile.new(name, functions)
 end
 # puts functions.map(&.vars.map(&.[](0))).flatten.tally
 
 struct OutputFile
-  @module : String
+  @namespace : String
   @functions : Array(CFunction)
 
-  def initialize(@module, @functions)
+  def initialize(@namespace, @functions)
   end
 
   ECR.def_to_s({{__DIR__ + "/binding_template.ecr"}})
@@ -63,35 +63,52 @@ def get_crystal_type(c_type) : String
   when "blasint", "int"
     "LibC::Int" # https://github.com/xianyi/OpenBLAS/blob/b0a590f4fe3abd5618e376d85f72ea00a9032683/common.h#L277
   else
-    "UnknownType"
+    "Int32"
   end  
 end
 
-record CFunction, name : String, qualifiers : String, vars : Array(Tuple(String, String)), do
-  def module : String
-    prefix = @name[...@name.index("_")]
+struct CFunction
+  @qualifiers : String
+  @vars : Array(Tuple(String, String))
 
-    case prefix
-    when "cblas"
-       "BLAS"
-    when "openblas", "goto"
-       "OpenBLAS"
-    when /lapack/i
-       "LAPACK"
-    else
-      raise "Unrecognized prefix #{prefix}"
-    end
+  property c_name : String
+  property namespace : String
+  property name : String
+
+  def initialize(@c_name, @qualifiers, @vars)
+    @namespace, @name = convert_name
   end
 
-  def to_crystal : String
-    varstring = (vars.map do |qual, name|
-        "#{name} : #{get_crystal_type(qual)}"
-    end).join(", ")
-    
-    cr_name = @name # TODO: change this based on our desired API
-    cr_type = get_crystal_type(qualifiers)
+  def convert_name : Tuple(String, String)
+    # Hardcoded mappings for abnormal functions
+    case @c_name
+    when "goto_set_num_threads"
+      return {"OpenBLAS", "goto_set_num_threads"}
+    end
 
-    "fun #{cr_name} = #{@name}(#{varstring}) : #{cr_type}"
+    # Most functions are prefixed by their identifier
+    prefix, suffix = @c_name.split('_', limit: 2)
+
+    namespace = case prefix
+      when "openblas"
+         "OpenBLAS"
+      when "cblas"
+         "OpenBLAS::BLAS"
+      when "lapack", "LAPACK"
+         "OpenBLAS::LAPACK"
+      else
+        raise "Unrecognized prefix #{prefix}"
+      end
+
+    name = suffix
+
+    {namespace, name}
+  end
+
+  def args
+    @vars.map do |qual, name|
+        "#{name} : #{get_crystal_type(qual)}"
+    end.join(", ")
   end
 end
 
@@ -127,8 +144,11 @@ def find_functions(lines : Array(String)) : Array(CFunction)
       next
     end
 
-    # handling macros
+    # handle macros
     next if line.starts_with? "#"
+
+    # ignore typedefs
+    next if line.starts_with? "typedef"
 
     # Find out if we open a function here
     if match = FUNC_DECLARATION.match(line)

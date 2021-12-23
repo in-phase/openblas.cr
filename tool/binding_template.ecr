@@ -1,3 +1,5 @@
-module <%= @module == "OpenBLAS" ? "OpenBLAS" : "OpenBLAS::#{@module}" %>
-    <%= @functions.map &.name %>
+module <%= @namespace %>
+<% @functions[..10].each do |function| -%>
+  fun <%= function.name %> = <%= function.c_name %>(<%= function.args %>)
+<% end -%>
 end

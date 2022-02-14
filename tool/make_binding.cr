@@ -1,4 +1,5 @@
 require "ecr"
+require "colorize"
 
 WORD = /[^(),\s]+/
 FUNC_QUALIFIER = /(?:#{WORD}\s+(?!\())/
@@ -16,7 +17,8 @@ NAMESPACES = Hash(String, Array(CFunction)).new do |hash, missing_key|
   new_arr
 end
 
-HEADERS.each do |name|
+# HEADERS.each do |name|
+{"cblas.h"}.each do |name|
   header_path = ROOT / name
   header = File.read_lines(header_path)
 
@@ -59,12 +61,52 @@ def get_crystal_type(c_type) : String
   # 6, "LAPACK_Z_SELECT2" => 6, "lapack_logical*" => 40, "const
   # lapack_logical*" => 48, "lapack_complex_float" => 10,
   # "lapack_complex_double" => 10, "lapack_logical" => 48}
-  case c_type
-  when "blasint", "int"
-    "LibC::Int" # https://github.com/xianyi/OpenBLAS/blob/b0a590f4fe3abd5618e376d85f72ea00a9032683/common.h#L277
-  else
-    "Int32"
-  end  
+
+  pointer_decoration = ""
+  raw_type = c_type
+
+  if asterisk_index = c_type.index('*')
+    raw_type, pointer_decoration = c_type[0...asterisk_index], c_type[asterisk_index..]
+  end
+
+  raw_crystal_type =
+    case raw_type
+    when "size_t"
+      "LibC::SizeT"
+    when "int", "blasint"
+      "LibC::Int"
+    when "float"
+      "LibC::Float"
+    when "double"
+      "LibC::Double"
+    when "char"
+      "LibC::Char"
+    when "void"
+      "Void"
+    when "cpu_set_t"
+      "Void"
+    when "bfloat16"
+      "UInt16"
+    when .starts_with? "enum"
+      case enum_name = raw_type.gsub("enum", "").strip
+      when "CBLAS_ORDER"
+        "CBLAS::Order"
+      when "CBLAS_TRANSPOSE"
+        "CBLAS::Transpose"
+      when "CBLAS_UPLO"
+        "CBLAS::UpLo"
+      when "CBLAS_DIAG"
+        "CBLAS::Diag"
+      when "CBLAS_SIDE"
+        "CBLAS::Side"
+      else
+        raw_type.colorize(:red).to_s
+      end
+    else
+      raw_type.colorize(:red).to_s
+    end
+
+  raw_crystal_type + pointer_decoration
 end
 
 struct CFunction
@@ -91,7 +133,7 @@ struct CFunction
 
     namespace = case prefix
       when "openblas"
-         "OpenBLAS"
+         "OpenBLAS::Core"
       when "cblas"
          "OpenBLAS::BLAS"
       when "lapack", "LAPACK"
@@ -100,23 +142,38 @@ struct CFunction
         raise "Unrecognized prefix #{prefix}"
       end
 
-    name = suffix
+    name = suffix.downcase
 
     {namespace, name}
   end
 
   def args
     @vars.map do |qual, name|
-        "#{name} : #{get_crystal_type(qual)}"
+      "#{name} : #{get_crystal_type(qual)}"
     end.join(", ")
   end
 end
 
 def parse_variables(line : String) : Array(Tuple(String, String))
+  # First, we deconstruct comma-separated list of variables into qualifiers and names
   line.scan(/(#{VAR_QUALIFIER}+)(#{VAR_NAME})/).map do |match|
     _, qualifiers, name = match
-    # qualiqualifiers
-    {qualifiers.gsub("OPENBLAS_CONST", "").strip, name}
+    
+    # We don't care what types OpenBLAS is trying to keep as consts, so we
+    # remove that information here.
+    qualifiers = qualifiers.gsub("OPENBLAS_CONST", "").strip
+
+    # Most variables that are pointers use an asterisk after the type, like int*.
+    # However, this isn't consistent - some do int *name. This means that the
+    # name includes some number of asterisks in certain cases. We have to fix
+    # this here.
+    if name.starts_with? '*'
+      last_idx = name.rindex('*').not_nil!
+      asterisks, name = name[0..last_idx], name[(last_idx + 1)..]
+      qualifiers += asterisks
+    end
+
+    {qualifiers, name}
   end
 end
 

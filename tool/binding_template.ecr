@@ -1,5 +1,5 @@
-module <%= @namespace %>
-<% @functions[..10].each do |function| -%>
+lib <%= @namespace %>
+<% @functions[..].each do |function| -%>
   fun <%= function.name %> = <%= function.c_name %>(<%= function.args %>)
 <% end -%>
 end

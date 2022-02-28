@@ -149,7 +149,7 @@ struct CFunction
 
   def args
     @vars.map do |qual, name|
-      "#{name} : #{get_crystal_type(qual)}"
+      "#{name.downcase} : #{get_crystal_type(qual)}"
     end.join(", ")
   end
 end

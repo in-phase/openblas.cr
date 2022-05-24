@@ -1,36 +1,39 @@
 require "ecr"
-require "colorize"
 
 WORD = /[^(),\s]+/
 FUNC_QUALIFIER = /(?:#{WORD}\s+(?!\())/
 FUNC_NAME = /#{WORD}(?=\s*\()/
-FUNC_DECLARATION = /^(#{FUNC_QUALIFIER}+)(#{FUNC_NAME})/ # #{function_args};$/
+FUNC_DECLARATION = /^(#{FUNC_QUALIFIER}+)(#{FUNC_NAME})/
 
 VAR_QUALIFIER = FUNC_QUALIFIER
 VAR_NAME = /#{WORD}(?=\s*[,\)])/
 
 ROOT = (Path[__DIR__] / "..").normalize
 HEADERS = {"cblas.h", "lapack.h"}
+OUTPUT_FOLDER = ROOT / "src" / "raw_bindings"
 NAMESPACES = Hash(String, Array(CFunction)).new do |hash, missing_key|
   new_arr = [] of CFunction
   hash[missing_key] = new_arr
   new_arr
 end
 
-# HEADERS.each do |name|
-{"cblas.h"}.each do |name|
+HEADERS.each do |name|
   header_path = ROOT / name
   header = File.read_lines(header_path)
 
   find_functions(header).each do |func|
-    NAMESPACES[func.namespace] << func
+    NAMESPACES[func.namespace] << func 
   end
 end
 
 NAMESPACES.each do |name, functions|
-  puts OutputFile.new(name, functions)
+  outfile = File.open(OUTPUT_FOLDER / "lib_#{name.downcase}.cr", mode: "w")
+  outfile << OutputFile.new(name, functions)
+  outfile.close
 end
-# puts functions.map(&.vars.map(&.[](0))).flatten.tally
+
+class TypeError < Exception
+end
 
 struct OutputFile
   @namespace : String
@@ -73,7 +76,7 @@ def get_crystal_type(c_type) : String
     case raw_type
     when "size_t"
       "LibC::SizeT"
-    when "int", "blasint"
+    when "int", "blasint", "lapack_int"
       "LibC::Int"
     when "float"
       "LibC::Float"
@@ -86,7 +89,10 @@ def get_crystal_type(c_type) : String
     when "cpu_set_t"
       "Void"
     when "bfloat16"
-      "UInt16"
+      # I have UInt16 written here but I don't recall if that's a decision I made
+      # for good reasons or hacky reasons. Removed for now
+      # "UInt16"
+      raise TypeError.new(raw_type)
     when .starts_with? "enum"
       case enum_name = raw_type.gsub("enum", "").strip
       when "CBLAS_ORDER"
@@ -100,10 +106,10 @@ def get_crystal_type(c_type) : String
       when "CBLAS_SIDE"
         "CBLAS::Side"
       else
-        raw_type.colorize(:red).to_s
+        raise TypeError.new(raw_type)
       end
     else
-      raw_type.colorize(:red).to_s
+      raise TypeError.new(raw_type)
     end
 
   raw_crystal_type + pointer_decoration
@@ -125,24 +131,32 @@ struct CFunction
     # Hardcoded mappings for abnormal functions
     case @c_name
     when "goto_set_num_threads"
-      return {"OpenBLAS", "goto_set_num_threads"}
+      return {"Core", "goto_set_num_threads"}
     end
 
     # Most functions are prefixed by their identifier
     prefix, suffix = @c_name.split('_', limit: 2)
 
+    name = suffix.downcase
     namespace = case prefix
       when "openblas"
-         "OpenBLAS::Core"
+         "Core"
       when "cblas"
-         "OpenBLAS::BLAS"
+         "CBLAS"
       when "lapack", "LAPACK"
-         "OpenBLAS::LAPACK"
+         # Lapack has a system where every C name is actually
+         # a macro that gets a name from several possible syntaxes
+         # to prevent collisions with other libraries. AFAIK, because
+         # we're not including the c libraries, there will be no
+         # namespace collisions, and it will use
+         # #define LAPACK_xxxxx xxxxx_
+         # for the C function name. Bizzare, I know.
+        @c_name = "#{name}_"
+
+         "LAPACK"
       else
         raise "Unrecognized prefix #{prefix}"
       end
-
-    name = suffix.downcase
 
     {namespace, name}
   end
@@ -161,7 +175,13 @@ def parse_variables(line : String) : Array(Tuple(String, String))
     
     # We don't care what types OpenBLAS is trying to keep as consts, so we
     # remove that information here.
-    qualifiers = qualifiers.gsub("OPENBLAS_CONST", "").strip
+    qualifiers = qualifiers.gsub("OPENBLAS_CONST", "")
+    # Same with LAPACk, which uses const a lot.
+    # It also does stuff like "lapack_int const* m", so we try
+    # removing a " const", then removing a "const".
+    qualifiers = qualifiers.gsub(" const", "")
+
+    qualifiers = qualifiers.strip
 
     # Most variables that are pointers use an asterisk after the type, like int*.
     # However, this isn't consistent - some do int *name. This means that the

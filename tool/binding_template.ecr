@@ -1,5 +1,12 @@
-lib <%= @namespace %>
-<% @functions[..].each do |function| -%>
-  fun <%= function.name %> = <%= function.c_name %>(<%= function.args %>)
-<% end -%>
+module OpenBLAS
+  lib <%= @namespace %>
+  <%- @functions[..].each do |function| -%>
+    <%- begin -%>
+    <%- args = function.args -%>
+    fun <%= function.name %> = <%= function.c_name %>(<%= function.args %>)
+    <%- rescue ex : TypeError -%>
+    # Excluded <%= function.name %> because the type `<%= ex.message %>` is not defined in this library.
+    <%- end -%>
+  <%- end -%>
+  end
 end

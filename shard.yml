@@ -1,15 +1,10 @@
 name: openblas
 version: 0.1.0
 
-development_dependencies:
-  bindgen:
-    github: papierkorb/bindgen
-    branch: master
-
 authors:
   - Seth Hinz <sethhinz@me.com>
   - Emily Love <emily.jeanette.love@gmail.com>
 
-crystal: 1.2.1
+crystal: 1.4.1
 
 license: MIT

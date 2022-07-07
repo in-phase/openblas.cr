@@ -88,6 +88,10 @@ def get_crystal_type(c_type) : String
       "Void"
     when "cpu_set_t"
       "Void"
+    when "lapack_complex_float"
+      "ComplexFloat"
+    when "lapack_complex_double"
+      "ComplexDouble"
     when "bfloat16"
       # I have UInt16 written here but I don't recall if that's a decision I made
       # for good reasons or hacky reasons. Removed for now

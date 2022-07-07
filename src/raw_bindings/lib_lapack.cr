@@ -1,88 +1,88 @@
 module OpenBLAS
   lib LAPACK
     fun lsame = lsame_(ca : LibC::Char*, cb : LibC::Char*, lca : LibC::Int, lcb : LibC::Int)
-    # Excluded cbbcsd because the type `lapack_complex_float` is not defined in this library.
+    fun cbbcsd = cbbcsd_(jobu1 : LibC::Char*, jobu2 : LibC::Char*, jobv1t : LibC::Char*, jobv2t : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, theta : LibC::Float*, phi : LibC::Float*, u1 : ComplexFloat*, ldu1 : LibC::Int*, u2 : ComplexFloat*, ldu2 : LibC::Int*, v1t : ComplexFloat*, ldv1t : LibC::Int*, v2t : ComplexFloat*, ldv2t : LibC::Int*, b11d : LibC::Float*, b11e : LibC::Float*, b12d : LibC::Float*, b12e : LibC::Float*, b21d : LibC::Float*, b21e : LibC::Float*, b22d : LibC::Float*, b22e : LibC::Float*, rwork : LibC::Float*, lrwork : LibC::Int*, info : LibC::Int*)
     fun dbbcsd = dbbcsd_(jobu1 : LibC::Char*, jobu2 : LibC::Char*, jobv1t : LibC::Char*, jobv2t : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, theta : LibC::Double*, phi : LibC::Double*, u1 : LibC::Double*, ldu1 : LibC::Int*, u2 : LibC::Double*, ldu2 : LibC::Int*, v1t : LibC::Double*, ldv1t : LibC::Int*, v2t : LibC::Double*, ldv2t : LibC::Int*, b11d : LibC::Double*, b11e : LibC::Double*, b12d : LibC::Double*, b12e : LibC::Double*, b21d : LibC::Double*, b21e : LibC::Double*, b22d : LibC::Double*, b22e : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sbbcsd = sbbcsd_(jobu1 : LibC::Char*, jobu2 : LibC::Char*, jobv1t : LibC::Char*, jobv2t : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, theta : LibC::Float*, phi : LibC::Float*, u1 : LibC::Float*, ldu1 : LibC::Int*, u2 : LibC::Float*, ldu2 : LibC::Int*, v1t : LibC::Float*, ldv1t : LibC::Int*, v2t : LibC::Float*, ldv2t : LibC::Int*, b11d : LibC::Float*, b11e : LibC::Float*, b12d : LibC::Float*, b12e : LibC::Float*, b21d : LibC::Float*, b21e : LibC::Float*, b22d : LibC::Float*, b22e : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zbbcsd because the type `lapack_complex_double` is not defined in this library.
+    fun zbbcsd = zbbcsd_(jobu1 : LibC::Char*, jobu2 : LibC::Char*, jobv1t : LibC::Char*, jobv2t : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, theta : LibC::Double*, phi : LibC::Double*, u1 : ComplexDouble*, ldu1 : LibC::Int*, u2 : ComplexDouble*, ldu2 : LibC::Int*, v1t : ComplexDouble*, ldv1t : LibC::Int*, v2t : ComplexDouble*, ldv2t : LibC::Int*, b11d : LibC::Double*, b11e : LibC::Double*, b12d : LibC::Double*, b12e : LibC::Double*, b21d : LibC::Double*, b21e : LibC::Double*, b22d : LibC::Double*, b22e : LibC::Double*, rwork : LibC::Double*, lrwork : LibC::Int*, info : LibC::Int*)
     fun dbdsdc = dbdsdc_(uplo : LibC::Char*, compq : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, u : LibC::Double*, ldu : LibC::Int*, vt : LibC::Double*, ldvt : LibC::Int*, q : LibC::Double*, iq : LibC::Int*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sbdsdc = sbdsdc_(uplo : LibC::Char*, compq : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, u : LibC::Float*, ldu : LibC::Int*, vt : LibC::Float*, ldvt : LibC::Int*, q : LibC::Float*, iq : LibC::Int*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded cbdsqr because the type `lapack_complex_float` is not defined in this library.
+    fun cbdsqr = cbdsqr_(uplo : LibC::Char*, n : LibC::Int*, ncvt : LibC::Int*, nru : LibC::Int*, ncc : LibC::Int*, d : LibC::Float*, e : LibC::Float*, vt : ComplexFloat*, ldvt : LibC::Int*, u : ComplexFloat*, ldu : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dbdsqr = dbdsqr_(uplo : LibC::Char*, n : LibC::Int*, ncvt : LibC::Int*, nru : LibC::Int*, ncc : LibC::Int*, d : LibC::Double*, e : LibC::Double*, vt : LibC::Double*, ldvt : LibC::Int*, u : LibC::Double*, ldu : LibC::Int*, c : LibC::Double*, ldc : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun sbdsqr = sbdsqr_(uplo : LibC::Char*, n : LibC::Int*, ncvt : LibC::Int*, nru : LibC::Int*, ncc : LibC::Int*, d : LibC::Float*, e : LibC::Float*, vt : LibC::Float*, ldvt : LibC::Int*, u : LibC::Float*, ldu : LibC::Int*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zbdsqr because the type `lapack_complex_double` is not defined in this library.
+    fun zbdsqr = zbdsqr_(uplo : LibC::Char*, n : LibC::Int*, ncvt : LibC::Int*, nru : LibC::Int*, ncc : LibC::Int*, d : LibC::Double*, e : LibC::Double*, vt : ComplexDouble*, ldvt : LibC::Int*, u : ComplexDouble*, ldu : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
     fun dbdsvdx = dbdsvdx_(uplo : LibC::Char*, jobz : LibC::Char*, range : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, ns : LibC::Int*, s : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sbdsvdx = sbdsvdx_(uplo : LibC::Char*, jobz : LibC::Char*, range : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, ns : LibC::Int*, s : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
     fun ddisna = ddisna_(job : LibC::Char*, m : LibC::Int*, n : LibC::Int*, d : LibC::Double*, sep : LibC::Double*, info : LibC::Int*)
     fun sdisna = sdisna_(job : LibC::Char*, m : LibC::Int*, n : LibC::Int*, d : LibC::Float*, sep : LibC::Float*, info : LibC::Int*)
-    # Excluded cgbbrd because the type `lapack_complex_float` is not defined in this library.
+    fun cgbbrd = cgbbrd_(vect : LibC::Char*, m : LibC::Int*, n : LibC::Int*, ncc : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, d : LibC::Float*, e : LibC::Float*, q : ComplexFloat*, ldq : LibC::Int*, pt : ComplexFloat*, ldpt : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgbbrd = dgbbrd_(vect : LibC::Char*, m : LibC::Int*, n : LibC::Int*, ncc : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, d : LibC::Double*, e : LibC::Double*, q : LibC::Double*, ldq : LibC::Int*, pt : LibC::Double*, ldpt : LibC::Int*, c : LibC::Double*, ldc : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun sgbbrd = sgbbrd_(vect : LibC::Char*, m : LibC::Int*, n : LibC::Int*, ncc : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, d : LibC::Float*, e : LibC::Float*, q : LibC::Float*, ldq : LibC::Int*, pt : LibC::Float*, ldpt : LibC::Int*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zgbbrd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbcon because the type `lapack_complex_float` is not defined in this library.
+    fun zgbbrd = zgbbrd_(vect : LibC::Char*, m : LibC::Int*, n : LibC::Int*, ncc : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, d : LibC::Double*, e : LibC::Double*, q : ComplexDouble*, ldq : LibC::Int*, pt : ComplexDouble*, ldpt : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgbcon = cgbcon_(norm : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgbcon = dgbcon_(norm : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgbcon = sgbcon_(norm : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgbcon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbequ because the type `lapack_complex_float` is not defined in this library.
+    fun zgbcon = zgbcon_(norm : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgbequ = cgbequ_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, r : LibC::Float*, c : LibC::Float*, rowcnd : LibC::Float*, colcnd : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
     fun dgbequ = dgbequ_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, r : LibC::Double*, c : LibC::Double*, rowcnd : LibC::Double*, colcnd : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
     fun sgbequ = sgbequ_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, r : LibC::Float*, c : LibC::Float*, rowcnd : LibC::Float*, colcnd : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
-    # Excluded zgbequ because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbequb because the type `lapack_complex_float` is not defined in this library.
+    fun zgbequ = zgbequ_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, r : LibC::Double*, c : LibC::Double*, rowcnd : LibC::Double*, colcnd : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
+    fun cgbequb = cgbequb_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, r : LibC::Float*, c : LibC::Float*, rowcnd : LibC::Float*, colcnd : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
     fun dgbequb = dgbequb_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, r : LibC::Double*, c : LibC::Double*, rowcnd : LibC::Double*, colcnd : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
     fun sgbequb = sgbequb_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, r : LibC::Float*, c : LibC::Float*, rowcnd : LibC::Float*, colcnd : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
-    # Excluded zgbequb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbrfs because the type `lapack_complex_float` is not defined in this library.
+    fun zgbequb = zgbequb_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, r : LibC::Double*, c : LibC::Double*, rowcnd : LibC::Double*, colcnd : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
+    fun cgbrfs = cgbrfs_(trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, afb : ComplexFloat*, ldafb : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgbrfs = dgbrfs_(trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, afb : LibC::Double*, ldafb : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgbrfs = sgbrfs_(trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, afb : LibC::Float*, ldafb : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgbrfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbrfsx because the type `lapack_complex_float` is not defined in this library.
+    fun zgbrfs = zgbrfs_(trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, afb : ComplexDouble*, ldafb : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    # Excluded cgbrfsx because the type `const float` is not defined in this library.
     # Excluded dgbrfsx because the type `const double` is not defined in this library.
     # Excluded sgbrfsx because the type `const float` is not defined in this library.
-    # Excluded zgbrfsx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbsv because the type `lapack_complex_float` is not defined in this library.
+    # Excluded zgbrfsx because the type `const double` is not defined in this library.
+    fun cgbsv = cgbsv_(n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dgbsv = dgbsv_(n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sgbsv = sgbsv_(n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zgbsv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbsvx because the type `lapack_complex_float` is not defined in this library.
+    fun zgbsv = zgbsv_(n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cgbsvx = cgbsvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, afb : ComplexFloat*, ldafb : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Float*, c : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgbsvx = dgbsvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, afb : LibC::Double*, ldafb : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Double*, c : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgbsvx = sgbsvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, afb : LibC::Float*, ldafb : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Float*, c : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgbsvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbsvxx because the type `lapack_complex_float` is not defined in this library.
+    fun zgbsvx = zgbsvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, afb : ComplexDouble*, ldafb : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Double*, c : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgbsvxx = cgbsvxx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, afb : ComplexFloat*, ldafb : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Float*, c : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, rpvgrw : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgbsvxx = dgbsvxx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, afb : LibC::Double*, ldafb : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Double*, c : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, rpvgrw : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgbsvxx = sgbsvxx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, afb : LibC::Float*, ldafb : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Float*, c : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, rpvgrw : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgbsvxx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbtrf because the type `lapack_complex_float` is not defined in this library.
+    fun zgbsvxx = zgbsvxx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, afb : ComplexDouble*, ldafb : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Double*, c : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, rpvgrw : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgbtrf = cgbtrf_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
     fun dgbtrf = dgbtrf_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
     fun sgbtrf = sgbtrf_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
-    # Excluded zgbtrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgbtrs because the type `lapack_complex_float` is not defined in this library.
+    fun zgbtrf = zgbtrf_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
+    fun cgbtrs = cgbtrs_(trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dgbtrs = dgbtrs_(trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sgbtrs = sgbtrs_(trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zgbtrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgebak because the type `lapack_complex_float` is not defined in this library.
+    fun zgbtrs = zgbtrs_(trans : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cgebak = cgebak_(job : LibC::Char*, side : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Float*, m : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, info : LibC::Int*)
     fun dgebak = dgebak_(job : LibC::Char*, side : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Double*, m : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, info : LibC::Int*)
     fun sgebak = sgebak_(job : LibC::Char*, side : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Float*, m : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, info : LibC::Int*)
-    # Excluded zgebak because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgebal because the type `lapack_complex_float` is not defined in this library.
+    fun zgebak = zgebak_(job : LibC::Char*, side : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Double*, m : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, info : LibC::Int*)
+    fun cgebal = cgebal_(job : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Float*, info : LibC::Int*)
     fun dgebal = dgebal_(job : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Double*, info : LibC::Int*)
     fun sgebal = sgebal_(job : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Float*, info : LibC::Int*)
-    # Excluded zgebal because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgebrd because the type `lapack_complex_float` is not defined in this library.
+    fun zgebal = zgebal_(job : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Double*, info : LibC::Int*)
+    fun cgebrd = cgebrd_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, d : LibC::Float*, e : LibC::Float*, tauq : ComplexFloat*, taup : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgebrd = dgebrd_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, d : LibC::Double*, e : LibC::Double*, tauq : LibC::Double*, taup : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgebrd = sgebrd_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, d : LibC::Float*, e : LibC::Float*, tauq : LibC::Float*, taup : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgebrd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgecon because the type `lapack_complex_float` is not defined in this library.
+    fun zgebrd = zgebrd_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, d : LibC::Double*, e : LibC::Double*, tauq : ComplexDouble*, taup : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgecon = cgecon_(norm : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgecon = dgecon_(norm : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgecon = sgecon_(norm : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgecon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeequ because the type `lapack_complex_float` is not defined in this library.
+    fun zgecon = zgecon_(norm : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgeequ = cgeequ_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, r : LibC::Float*, c : LibC::Float*, rowcnd : LibC::Float*, colcnd : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
     fun dgeequ = dgeequ_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, r : LibC::Double*, c : LibC::Double*, rowcnd : LibC::Double*, colcnd : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
     fun sgeequ = sgeequ_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, r : LibC::Float*, c : LibC::Float*, rowcnd : LibC::Float*, colcnd : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
-    # Excluded zgeequ because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeequb because the type `lapack_complex_float` is not defined in this library.
+    fun zgeequ = zgeequ_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, r : LibC::Double*, c : LibC::Double*, rowcnd : LibC::Double*, colcnd : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
+    fun cgeequb = cgeequb_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, r : LibC::Float*, c : LibC::Float*, rowcnd : LibC::Float*, colcnd : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
     fun dgeequb = dgeequb_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, r : LibC::Double*, c : LibC::Double*, rowcnd : LibC::Double*, colcnd : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
     fun sgeequb = sgeequb_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, r : LibC::Float*, c : LibC::Float*, rowcnd : LibC::Float*, colcnd : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
-    # Excluded zgeequb because the type `lapack_complex_double` is not defined in this library.
+    fun zgeequb = zgeequb_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, r : LibC::Double*, c : LibC::Double*, rowcnd : LibC::Double*, colcnd : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
     # Excluded cgees because the type `LAPACK_C_SELECT1` is not defined in this library.
     # Excluded dgees because the type `LAPACK_D_SELECT2` is not defined in this library.
     # Excluded sgees because the type `LAPACK_S_SELECT2` is not defined in this library.
@@ -91,192 +91,192 @@ module OpenBLAS
     # Excluded dgeesx because the type `LAPACK_D_SELECT2` is not defined in this library.
     # Excluded sgeesx because the type `LAPACK_S_SELECT2` is not defined in this library.
     # Excluded zgeesx because the type `LAPACK_Z_SELECT1` is not defined in this library.
-    # Excluded cgeev because the type `lapack_complex_float` is not defined in this library.
+    fun cgeev = cgeev_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, w : ComplexFloat*, vl : ComplexFloat*, ldvl : LibC::Int*, vr : ComplexFloat*, ldvr : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgeev = dgeev_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, wr : LibC::Double*, wi : LibC::Double*, vl : LibC::Double*, ldvl : LibC::Int*, vr : LibC::Double*, ldvr : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgeev = sgeev_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, wr : LibC::Float*, wi : LibC::Float*, vl : LibC::Float*, ldvl : LibC::Int*, vr : LibC::Float*, ldvr : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgeev because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeevx because the type `lapack_complex_float` is not defined in this library.
+    fun zgeev = zgeev_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, w : ComplexDouble*, vl : ComplexDouble*, ldvl : LibC::Int*, vr : ComplexDouble*, ldvr : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgeevx = cgeevx_(balanc : LibC::Char*, jobvl : LibC::Char*, jobvr : LibC::Char*, sense : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, w : ComplexFloat*, vl : ComplexFloat*, ldvl : LibC::Int*, vr : ComplexFloat*, ldvr : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Float*, abnrm : LibC::Float*, rconde : LibC::Float*, rcondv : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgeevx = dgeevx_(balanc : LibC::Char*, jobvl : LibC::Char*, jobvr : LibC::Char*, sense : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, wr : LibC::Double*, wi : LibC::Double*, vl : LibC::Double*, ldvl : LibC::Int*, vr : LibC::Double*, ldvr : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Double*, abnrm : LibC::Double*, rconde : LibC::Double*, rcondv : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgeevx = sgeevx_(balanc : LibC::Char*, jobvl : LibC::Char*, jobvr : LibC::Char*, sense : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, wr : LibC::Float*, wi : LibC::Float*, vl : LibC::Float*, ldvl : LibC::Int*, vr : LibC::Float*, ldvr : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Float*, abnrm : LibC::Float*, rconde : LibC::Float*, rcondv : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgeevx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgehrd because the type `lapack_complex_float` is not defined in this library.
+    fun zgeevx = zgeevx_(balanc : LibC::Char*, jobvl : LibC::Char*, jobvr : LibC::Char*, sense : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, w : ComplexDouble*, vl : ComplexDouble*, ldvl : LibC::Int*, vr : ComplexDouble*, ldvr : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, scale : LibC::Double*, abnrm : LibC::Double*, rconde : LibC::Double*, rcondv : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgehrd = cgehrd_(n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgehrd = dgehrd_(n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgehrd = sgehrd_(n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgehrd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgejsv because the type `lapack_complex_float` is not defined in this library.
+    fun zgehrd = zgehrd_(n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgejsv = cgejsv_(joba : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, jobr : LibC::Char*, jobt : LibC::Char*, jobp : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, sva : LibC::Float*, u : ComplexFloat*, ldu : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, cwork : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun dgejsv = dgejsv_(joba : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, jobr : LibC::Char*, jobt : LibC::Char*, jobp : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, sva : LibC::Double*, u : LibC::Double*, ldu : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgejsv = sgejsv_(joba : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, jobr : LibC::Char*, jobt : LibC::Char*, jobp : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, sva : LibC::Float*, u : LibC::Float*, ldu : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgejsv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgelq because the type `lapack_complex_float` is not defined in this library.
+    fun zgejsv = zgejsv_(joba : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, jobr : LibC::Char*, jobt : LibC::Char*, jobp : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, sva : LibC::Double*, u : ComplexDouble*, ldu : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, cwork : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
+    fun cgelq = cgelq_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, t : ComplexFloat*, tsize : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgelq = dgelq_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, t : LibC::Double*, tsize : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgelq = sgelq_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, t : LibC::Float*, tsize : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgelq because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgelq2 because the type `lapack_complex_float` is not defined in this library.
+    fun zgelq = zgelq_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, t : ComplexDouble*, tsize : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgelq2 = cgelq2_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, info : LibC::Int*)
     fun dgelq2 = dgelq2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun sgelq2 = sgelq2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zgelq2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgelqf because the type `lapack_complex_float` is not defined in this library.
+    fun zgelq2 = zgelq2_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, info : LibC::Int*)
+    fun cgelqf = cgelqf_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgelqf = dgelqf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgelqf = sgelqf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgelqf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgels because the type `lapack_complex_float` is not defined in this library.
+    fun zgelqf = zgelqf_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgels = cgels_(trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgels = dgels_(trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgels = sgels_(trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgels because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgelsd because the type `lapack_complex_float` is not defined in this library.
+    fun zgels = zgels_(trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgelsd = cgelsd_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, s : LibC::Float*, rcond : LibC::Float*, rank : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
     fun dgelsd = dgelsd_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, s : LibC::Double*, rcond : LibC::Double*, rank : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgelsd = sgelsd_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, s : LibC::Float*, rcond : LibC::Float*, rank : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgelsd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgelss because the type `lapack_complex_float` is not defined in this library.
+    fun zgelsd = zgelsd_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, s : LibC::Double*, rcond : LibC::Double*, rank : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
+    fun cgelss = cgelss_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, s : LibC::Float*, rcond : LibC::Float*, rank : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgelss = dgelss_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, s : LibC::Double*, rcond : LibC::Double*, rank : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgelss = sgelss_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, s : LibC::Float*, rcond : LibC::Float*, rank : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgelss because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgelsy because the type `lapack_complex_float` is not defined in this library.
+    fun zgelss = zgelss_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, s : LibC::Double*, rcond : LibC::Double*, rank : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgelsy = cgelsy_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, jpvt : LibC::Int*, rcond : LibC::Float*, rank : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgelsy = dgelsy_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, jpvt : LibC::Int*, rcond : LibC::Double*, rank : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgelsy = sgelsy_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, jpvt : LibC::Int*, rcond : LibC::Float*, rank : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgelsy because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgemlq because the type `lapack_complex_float` is not defined in this library.
+    fun zgelsy = zgelsy_(m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, jpvt : LibC::Int*, rcond : LibC::Double*, rank : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgemlq = cgemlq_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, t : ComplexFloat*, tsize : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgemlq = dgemlq_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, t : LibC::Double*, tsize : LibC::Int*, c : LibC::Double*, ldc : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgemlq = sgemlq_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, t : LibC::Float*, tsize : LibC::Int*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgemlq because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgemqr because the type `lapack_complex_float` is not defined in this library.
+    fun zgemlq = zgemlq_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, t : ComplexDouble*, tsize : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgemqr = cgemqr_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, t : ComplexFloat*, tsize : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgemqr = dgemqr_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, t : LibC::Double*, tsize : LibC::Int*, c : LibC::Double*, ldc : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgemqr = sgemqr_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, t : LibC::Float*, tsize : LibC::Int*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgemqr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgemqrt because the type `lapack_complex_float` is not defined in this library.
+    fun zgemqr = zgemqr_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, t : ComplexDouble*, tsize : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgemqrt = cgemqrt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, nb : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dgemqrt = dgemqrt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, nb : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, c : LibC::Double*, ldc : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun sgemqrt = sgemqrt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, nb : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zgemqrt because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeql2 because the type `lapack_complex_float` is not defined in this library.
+    fun zgemqrt = zgemqrt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, nb : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun cgeql2 = cgeql2_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, info : LibC::Int*)
     fun dgeql2 = dgeql2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun sgeql2 = sgeql2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zgeql2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeqlf because the type `lapack_complex_float` is not defined in this library.
+    fun zgeql2 = zgeql2_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, info : LibC::Int*)
+    fun cgeqlf = cgeqlf_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgeqlf = dgeqlf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgeqlf = sgeqlf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgeqlf because the type `lapack_complex_double` is not defined in this library.
+    fun zgeqlf = zgeqlf_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgeqpf = sgeqpf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, jpvt : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
     fun dgeqpf = dgeqpf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, jpvt : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
-    # Excluded cgeqpf because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zgeqpf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeqp3 because the type `lapack_complex_float` is not defined in this library.
+    fun cgeqpf = cgeqpf_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, jpvt : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zgeqpf = zgeqpf_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, jpvt : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgeqp3 = cgeqp3_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, jpvt : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgeqp3 = dgeqp3_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, jpvt : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgeqp3 = sgeqp3_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, jpvt : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgeqp3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeqr because the type `lapack_complex_float` is not defined in this library.
+    fun zgeqp3 = zgeqp3_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, jpvt : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgeqr = cgeqr_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, t : ComplexFloat*, tsize : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgeqr = dgeqr_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, t : LibC::Double*, tsize : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgeqr = sgeqr_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, t : LibC::Float*, tsize : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgeqr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeqr2 because the type `lapack_complex_float` is not defined in this library.
+    fun zgeqr = zgeqr_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, t : ComplexDouble*, tsize : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgeqr2 = cgeqr2_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, info : LibC::Int*)
     fun dgeqr2 = dgeqr2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun sgeqr2 = sgeqr2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zgeqr2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeqrf because the type `lapack_complex_float` is not defined in this library.
+    fun zgeqr2 = zgeqr2_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, info : LibC::Int*)
+    fun cgeqrf = cgeqrf_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgeqrf = dgeqrf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgeqrf = sgeqrf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgeqrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeqrfp because the type `lapack_complex_float` is not defined in this library.
+    fun zgeqrf = zgeqrf_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgeqrfp = cgeqrfp_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgeqrfp = dgeqrfp_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgeqrfp = sgeqrfp_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgeqrfp because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeqrt because the type `lapack_complex_float` is not defined in this library.
+    fun zgeqrfp = zgeqrfp_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgeqrt = cgeqrt_(m : LibC::Int*, n : LibC::Int*, nb : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dgeqrt = dgeqrt_(m : LibC::Int*, n : LibC::Int*, nb : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun sgeqrt = sgeqrt_(m : LibC::Int*, n : LibC::Int*, nb : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zgeqrt because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeqrt2 because the type `lapack_complex_float` is not defined in this library.
+    fun zgeqrt = zgeqrt_(m : LibC::Int*, n : LibC::Int*, nb : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun cgeqrt2 = cgeqrt2_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, info : LibC::Int*)
     fun dgeqrt2 = dgeqrt2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, info : LibC::Int*)
     fun sgeqrt2 = sgeqrt2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, info : LibC::Int*)
-    # Excluded zgeqrt2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgeqrt3 because the type `lapack_complex_float` is not defined in this library.
+    fun zgeqrt2 = zgeqrt2_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, info : LibC::Int*)
+    fun cgeqrt3 = cgeqrt3_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, info : LibC::Int*)
     fun dgeqrt3 = dgeqrt3_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, info : LibC::Int*)
     fun sgeqrt3 = sgeqrt3_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, info : LibC::Int*)
-    # Excluded zgeqrt3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgerfs because the type `lapack_complex_float` is not defined in this library.
+    fun zgeqrt3 = zgeqrt3_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, info : LibC::Int*)
+    fun cgerfs = cgerfs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgerfs = dgerfs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgerfs = sgerfs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgerfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgerfsx because the type `lapack_complex_float` is not defined in this library.
+    fun zgerfs = zgerfs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgerfsx = cgerfsx_(trans : LibC::Char*, equed : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, r : LibC::Float*, c : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgerfsx = dgerfsx_(trans : LibC::Char*, equed : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, ipiv : LibC::Int*, r : LibC::Double*, c : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgerfsx = sgerfsx_(trans : LibC::Char*, equed : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, ipiv : LibC::Int*, r : LibC::Float*, c : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgerfsx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgerq2 because the type `lapack_complex_float` is not defined in this library.
+    fun zgerfsx = zgerfsx_(trans : LibC::Char*, equed : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, r : LibC::Double*, c : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgerq2 = cgerq2_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, info : LibC::Int*)
     fun dgerq2 = dgerq2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun sgerq2 = sgerq2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zgerq2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgerqf because the type `lapack_complex_float` is not defined in this library.
+    fun zgerq2 = zgerq2_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, info : LibC::Int*)
+    fun cgerqf = cgerqf_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgerqf = dgerqf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgerqf = sgerqf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgerqf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgesdd because the type `lapack_complex_float` is not defined in this library.
+    fun zgerqf = zgerqf_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgesdd = cgesdd_(jobz : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, s : LibC::Float*, u : ComplexFloat*, ldu : LibC::Int*, vt : ComplexFloat*, ldvt : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
     fun dgesdd = dgesdd_(jobz : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, s : LibC::Double*, u : LibC::Double*, ldu : LibC::Int*, vt : LibC::Double*, ldvt : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgesdd = sgesdd_(jobz : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, s : LibC::Float*, u : LibC::Float*, ldu : LibC::Int*, vt : LibC::Float*, ldvt : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgesdd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgesv because the type `lapack_complex_float` is not defined in this library.
+    fun zgesdd = zgesdd_(jobz : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, s : LibC::Double*, u : ComplexDouble*, ldu : LibC::Int*, vt : ComplexDouble*, ldvt : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
+    fun cgesv = cgesv_(n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dgesv = dgesv_(n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sgesv = sgesv_(n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zgesv because the type `lapack_complex_double` is not defined in this library.
+    fun zgesv = zgesv_(n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
     fun dsgesv = dsgesv_(n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, work : LibC::Double*, swork : LibC::Float*, iter : LibC::Int*, info : LibC::Int*)
-    # Excluded zcgesv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgesvd because the type `lapack_complex_float` is not defined in this library.
+    fun zcgesv = zcgesv_(n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, work : ComplexDouble*, swork : ComplexFloat*, rwork : LibC::Double*, iter : LibC::Int*, info : LibC::Int*)
+    fun cgesvd = cgesvd_(jobu : LibC::Char*, jobvt : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, s : LibC::Float*, u : ComplexFloat*, ldu : LibC::Int*, vt : ComplexFloat*, ldvt : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgesvd = dgesvd_(jobu : LibC::Char*, jobvt : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, s : LibC::Double*, u : LibC::Double*, ldu : LibC::Int*, vt : LibC::Double*, ldvt : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgesvd = sgesvd_(jobu : LibC::Char*, jobvt : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, s : LibC::Float*, u : LibC::Float*, ldu : LibC::Int*, vt : LibC::Float*, ldvt : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgesvd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgesvdq because the type `lapack_complex_float` is not defined in this library.
+    fun zgesvd = zgesvd_(jobu : LibC::Char*, jobvt : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, s : LibC::Double*, u : ComplexDouble*, ldu : LibC::Int*, vt : ComplexDouble*, ldvt : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgesvdq = cgesvdq_(joba : LibC::Char*, jobp : LibC::Char*, jobr : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, s : LibC::Float*, u : ComplexFloat*, ldu : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, numrank : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, cwork : ComplexFloat*, lcwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, info : LibC::Int*)
     fun dgesvdq = dgesvdq_(joba : LibC::Char*, jobp : LibC::Char*, jobr : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, s : LibC::Double*, u : LibC::Double*, ldu : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, numrank : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, info : LibC::Int*)
     fun sgesvdq = sgesvdq_(joba : LibC::Char*, jobp : LibC::Char*, jobr : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, s : LibC::Float*, u : LibC::Float*, ldu : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, numrank : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgesvdq because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgesvdx because the type `lapack_complex_float` is not defined in this library.
+    fun zgesvdq = zgesvdq_(joba : LibC::Char*, jobp : LibC::Char*, jobr : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, s : LibC::Double*, u : ComplexDouble*, ldu : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, numrank : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, cwork : ComplexDouble*, lcwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, info : LibC::Int*)
+    fun cgesvdx = cgesvdx_(jobu : LibC::Char*, jobvt : LibC::Char*, range : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, ns : LibC::Int*, s : LibC::Float*, u : ComplexFloat*, ldu : LibC::Int*, vt : ComplexFloat*, ldvt : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
     fun dgesvdx = dgesvdx_(jobu : LibC::Char*, jobvt : LibC::Char*, range : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, ns : LibC::Int*, s : LibC::Double*, u : LibC::Double*, ldu : LibC::Int*, vt : LibC::Double*, ldvt : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgesvdx = sgesvdx_(jobu : LibC::Char*, jobvt : LibC::Char*, range : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, ns : LibC::Int*, s : LibC::Float*, u : LibC::Float*, ldu : LibC::Int*, vt : LibC::Float*, ldvt : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgesvdx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgesvj because the type `lapack_complex_float` is not defined in this library.
+    fun zgesvdx = zgesvdx_(jobu : LibC::Char*, jobvt : LibC::Char*, range : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, ns : LibC::Int*, s : LibC::Double*, u : ComplexDouble*, ldu : LibC::Int*, vt : ComplexDouble*, ldvt : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
+    fun cgesvj = cgesvj_(joba : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, sva : LibC::Float*, mv : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, cwork : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, info : LibC::Int*)
     fun dgesvj = dgesvj_(joba : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, sva : LibC::Double*, mv : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgesvj = sgesvj_(joba : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, sva : LibC::Float*, mv : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgesvj because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgesvx because the type `lapack_complex_float` is not defined in this library.
+    fun zgesvj = zgesvj_(joba : LibC::Char*, jobu : LibC::Char*, jobv : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, sva : LibC::Double*, mv : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, cwork : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, info : LibC::Int*)
+    fun cgesvx = cgesvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Float*, c : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgesvx = dgesvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Double*, c : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgesvx = sgesvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Float*, c : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgesvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgesvxx because the type `lapack_complex_float` is not defined in this library.
+    fun zgesvx = zgesvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Double*, c : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgesvxx = cgesvxx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Float*, c : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, rpvgrw : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgesvxx = dgesvxx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Double*, c : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, rpvgrw : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgesvxx = sgesvxx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Float*, c : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, rpvgrw : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgesvxx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgetf2 because the type `lapack_complex_float` is not defined in this library.
+    fun zgesvxx = zgesvxx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, r : LibC::Double*, c : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, rpvgrw : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgetf2 = cgetf2_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
     fun dgetf2 = dgetf2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
     fun sgetf2 = sgetf2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
-    # Excluded zgetf2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgetrf because the type `lapack_complex_float` is not defined in this library.
+    fun zgetf2 = zgetf2_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
+    fun cgetrf = cgetrf_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
     fun dgetrf = dgetrf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
     fun sgetrf = sgetrf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
-    # Excluded zgetrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgetrf2 because the type `lapack_complex_float` is not defined in this library.
+    fun zgetrf = zgetrf_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
+    fun cgetrf2 = cgetrf2_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
     fun dgetrf2 = dgetrf2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
     fun sgetrf2 = sgetrf2_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
-    # Excluded zgetrf2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgetri because the type `lapack_complex_float` is not defined in this library.
+    fun zgetrf2 = zgetrf2_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, info : LibC::Int*)
+    fun cgetri = cgetri_(n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgetri = dgetri_(n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgetri = sgetri_(n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgetri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgetrs because the type `lapack_complex_float` is not defined in this library.
+    fun zgetri = zgetri_(n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgetrs = cgetrs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dgetrs = dgetrs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sgetrs = sgetrs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zgetrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgetsls because the type `lapack_complex_float` is not defined in this library.
+    fun zgetrs = zgetrs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cgetsls = cgetsls_(trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgetsls = dgetsls_(trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgetsls = sgetsls_(trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgetsls because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgetsqrhrt because the type `lapack_complex_float` is not defined in this library.
+    fun zgetsls = zgetsls_(trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgetsqrhrt = cgetsqrhrt_(m : LibC::Int*, n : LibC::Int*, mb1 : LibC::Int*, nb1 : LibC::Int*, nb2 : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgetsqrhrt = dgetsqrhrt_(m : LibC::Int*, n : LibC::Int*, mb1 : LibC::Int*, nb1 : LibC::Int*, nb2 : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgetsqrhrt = sgetsqrhrt_(m : LibC::Int*, n : LibC::Int*, mb1 : LibC::Int*, nb1 : LibC::Int*, nb2 : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgetsqrhrt because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cggbak because the type `lapack_complex_float` is not defined in this library.
+    fun zgetsqrhrt = zgetsqrhrt_(m : LibC::Int*, n : LibC::Int*, mb1 : LibC::Int*, nb1 : LibC::Int*, nb2 : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cggbak = cggbak_(job : LibC::Char*, side : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, lscale : LibC::Float*, rscale : LibC::Float*, m : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, info : LibC::Int*)
     fun dggbak = dggbak_(job : LibC::Char*, side : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, lscale : LibC::Double*, rscale : LibC::Double*, m : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, info : LibC::Int*)
     fun sggbak = sggbak_(job : LibC::Char*, side : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, lscale : LibC::Float*, rscale : LibC::Float*, m : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, info : LibC::Int*)
-    # Excluded zggbak because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cggbal because the type `lapack_complex_float` is not defined in this library.
+    fun zggbak = zggbak_(job : LibC::Char*, side : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, lscale : LibC::Double*, rscale : LibC::Double*, m : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, info : LibC::Int*)
+    fun cggbal = cggbal_(job : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, lscale : LibC::Float*, rscale : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
     fun dggbal = dggbal_(job : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, lscale : LibC::Double*, rscale : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun sggbal = sggbal_(job : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, lscale : LibC::Float*, rscale : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zggbal because the type `lapack_complex_double` is not defined in this library.
+    fun zggbal = zggbal_(job : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, lscale : LibC::Double*, rscale : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     # Excluded cgges because the type `LAPACK_C_SELECT2` is not defined in this library.
     # Excluded dgges because the type `LAPACK_D_SELECT3` is not defined in this library.
     # Excluded sgges because the type `LAPACK_S_SELECT3` is not defined in this library.
@@ -289,314 +289,314 @@ module OpenBLAS
     # Excluded dggesx because the type `LAPACK_D_SELECT3` is not defined in this library.
     # Excluded sggesx because the type `LAPACK_S_SELECT3` is not defined in this library.
     # Excluded zggesx because the type `LAPACK_Z_SELECT2` is not defined in this library.
-    # Excluded cggev because the type `lapack_complex_float` is not defined in this library.
+    fun cggev = cggev_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, alpha : ComplexFloat*, beta : ComplexFloat*, vl : ComplexFloat*, ldvl : LibC::Int*, vr : ComplexFloat*, ldvr : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dggev = dggev_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, alphar : LibC::Double*, alphai : LibC::Double*, beta : LibC::Double*, vl : LibC::Double*, ldvl : LibC::Int*, vr : LibC::Double*, ldvr : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sggev = sggev_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, alphar : LibC::Float*, alphai : LibC::Float*, beta : LibC::Float*, vl : LibC::Float*, ldvl : LibC::Int*, vr : LibC::Float*, ldvr : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zggev because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cggev3 because the type `lapack_complex_float` is not defined in this library.
+    fun zggev = zggev_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, alpha : ComplexDouble*, beta : ComplexDouble*, vl : ComplexDouble*, ldvl : LibC::Int*, vr : ComplexDouble*, ldvr : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cggev3 = cggev3_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, alpha : ComplexFloat*, beta : ComplexFloat*, vl : ComplexFloat*, ldvl : LibC::Int*, vr : ComplexFloat*, ldvr : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dggev3 = dggev3_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, alphar : LibC::Double*, alphai : LibC::Double*, beta : LibC::Double*, vl : LibC::Double*, ldvl : LibC::Int*, vr : LibC::Double*, ldvr : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sggev3 = sggev3_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, alphar : LibC::Float*, alphai : LibC::Float*, beta : LibC::Float*, vl : LibC::Float*, ldvl : LibC::Int*, vr : LibC::Float*, ldvr : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zggev3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cggevx because the type `lapack_complex_float` is not defined in this library.
+    fun zggev3 = zggev3_(jobvl : LibC::Char*, jobvr : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, alpha : ComplexDouble*, beta : ComplexDouble*, vl : ComplexDouble*, ldvl : LibC::Int*, vr : ComplexDouble*, ldvr : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    # Excluded cggevx because the type `lapack_logical` is not defined in this library.
     # Excluded dggevx because the type `lapack_logical` is not defined in this library.
     # Excluded sggevx because the type `lapack_logical` is not defined in this library.
-    # Excluded zggevx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cggglm because the type `lapack_complex_float` is not defined in this library.
+    # Excluded zggevx because the type `lapack_logical` is not defined in this library.
+    fun cggglm = cggglm_(n : LibC::Int*, m : LibC::Int*, p : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, d : ComplexFloat*, x : ComplexFloat*, y : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dggglm = dggglm_(n : LibC::Int*, m : LibC::Int*, p : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, d : LibC::Double*, x : LibC::Double*, y : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sggglm = sggglm_(n : LibC::Int*, m : LibC::Int*, p : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, d : LibC::Float*, x : LibC::Float*, y : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zggglm because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgghd3 because the type `lapack_complex_float` is not defined in this library.
+    fun zggglm = zggglm_(n : LibC::Int*, m : LibC::Int*, p : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, d : ComplexDouble*, x : ComplexDouble*, y : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgghd3 = cgghd3_(compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgghd3 = dgghd3_(compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, q : LibC::Double*, ldq : LibC::Int*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgghd3 = sgghd3_(compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, q : LibC::Float*, ldq : LibC::Int*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgghd3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgghrd because the type `lapack_complex_float` is not defined in this library.
+    fun zgghd3 = zgghd3_(compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgghrd = cgghrd_(compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, z : ComplexFloat*, ldz : LibC::Int*, info : LibC::Int*)
     fun dgghrd = dgghrd_(compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, q : LibC::Double*, ldq : LibC::Int*, z : LibC::Double*, ldz : LibC::Int*, info : LibC::Int*)
     fun sgghrd = sgghrd_(compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, q : LibC::Float*, ldq : LibC::Int*, z : LibC::Float*, ldz : LibC::Int*, info : LibC::Int*)
-    # Excluded zgghrd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgglse because the type `lapack_complex_float` is not defined in this library.
+    fun zgghrd = zgghrd_(compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, z : ComplexDouble*, ldz : LibC::Int*, info : LibC::Int*)
+    fun cgglse = cgglse_(m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, c : ComplexFloat*, d : ComplexFloat*, x : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dgglse = dgglse_(m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, c : LibC::Double*, d : LibC::Double*, x : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sgglse = sgglse_(m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, c : LibC::Float*, d : LibC::Float*, x : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgglse because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cggqrf because the type `lapack_complex_float` is not defined in this library.
+    fun zgglse = zgglse_(m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, c : ComplexDouble*, d : ComplexDouble*, x : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cggqrf = cggqrf_(n : LibC::Int*, m : LibC::Int*, p : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, taua : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, taub : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dggqrf = dggqrf_(n : LibC::Int*, m : LibC::Int*, p : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, taua : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, taub : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sggqrf = sggqrf_(n : LibC::Int*, m : LibC::Int*, p : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, taua : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, taub : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zggqrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cggrqf because the type `lapack_complex_float` is not defined in this library.
+    fun zggqrf = zggqrf_(n : LibC::Int*, m : LibC::Int*, p : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, taua : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, taub : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cggrqf = cggrqf_(m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, taua : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, taub : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dggrqf = dggrqf_(m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, taua : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, taub : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sggrqf = sggrqf_(m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, taua : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, taub : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zggrqf because the type `lapack_complex_double` is not defined in this library.
+    fun zggrqf = zggrqf_(m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, taua : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, taub : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
     fun sggsvd = sggsvd_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, alpha : LibC::Float*, beta : LibC::Float*, u : LibC::Float*, ldu : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, q : LibC::Float*, ldq : LibC::Int*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
     fun dggsvd = dggsvd_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, alpha : LibC::Double*, beta : LibC::Double*, u : LibC::Double*, ldu : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, q : LibC::Double*, ldq : LibC::Int*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded cggsvd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zggsvd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cggsvd3 because the type `lapack_complex_float` is not defined in this library.
+    fun cggsvd = cggsvd_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, alpha : LibC::Float*, beta : LibC::Float*, u : ComplexFloat*, ldu : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
+    fun zggsvd = zggsvd_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, alpha : LibC::Double*, beta : LibC::Double*, u : ComplexDouble*, ldu : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
+    fun cggsvd3 = cggsvd3_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, alpha : LibC::Float*, beta : LibC::Float*, u : ComplexFloat*, ldu : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
     fun dggsvd3 = dggsvd3_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, alpha : LibC::Double*, beta : LibC::Double*, u : LibC::Double*, ldu : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, q : LibC::Double*, ldq : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun sggsvd3 = sggsvd3_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, alpha : LibC::Float*, beta : LibC::Float*, u : LibC::Float*, ldu : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, q : LibC::Float*, ldq : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zggsvd3 because the type `lapack_complex_double` is not defined in this library.
+    fun zggsvd3 = zggsvd3_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, n : LibC::Int*, p : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, alpha : LibC::Double*, beta : LibC::Double*, u : ComplexDouble*, ldu : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sggsvp = sggsvp_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, tola : LibC::Float*, tolb : LibC::Float*, k : LibC::Int*, l : LibC::Int*, u : LibC::Float*, ldu : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, q : LibC::Float*, ldq : LibC::Int*, iwork : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
     fun dggsvp = dggsvp_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, tola : LibC::Double*, tolb : LibC::Double*, k : LibC::Int*, l : LibC::Int*, u : LibC::Double*, ldu : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, q : LibC::Double*, ldq : LibC::Int*, iwork : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
-    # Excluded cggsvp because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zggsvp because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cggsvp3 because the type `lapack_complex_float` is not defined in this library.
+    fun cggsvp = cggsvp_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, tola : LibC::Float*, tolb : LibC::Float*, k : LibC::Int*, l : LibC::Int*, u : ComplexFloat*, ldu : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, iwork : LibC::Int*, rwork : LibC::Float*, tau : ComplexFloat*, work : ComplexFloat*, info : LibC::Int*)
+    fun zggsvp = zggsvp_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, tola : LibC::Double*, tolb : LibC::Double*, k : LibC::Int*, l : LibC::Int*, u : ComplexDouble*, ldu : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, iwork : LibC::Int*, rwork : LibC::Double*, tau : ComplexDouble*, work : ComplexDouble*, info : LibC::Int*)
+    fun cggsvp3 = cggsvp3_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, tola : LibC::Float*, tolb : LibC::Float*, k : LibC::Int*, l : LibC::Int*, u : ComplexFloat*, ldu : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, iwork : LibC::Int*, rwork : LibC::Float*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dggsvp3 = dggsvp3_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, tola : LibC::Double*, tolb : LibC::Double*, k : LibC::Int*, l : LibC::Int*, u : LibC::Double*, ldu : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, q : LibC::Double*, ldq : LibC::Int*, iwork : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sggsvp3 = sggsvp3_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, tola : LibC::Float*, tolb : LibC::Float*, k : LibC::Int*, l : LibC::Int*, u : LibC::Float*, ldu : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, q : LibC::Float*, ldq : LibC::Int*, iwork : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zggsvp3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgtcon because the type `lapack_complex_float` is not defined in this library.
+    fun zggsvp3 = zggsvp3_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, tola : LibC::Double*, tolb : LibC::Double*, k : LibC::Int*, l : LibC::Int*, u : ComplexDouble*, ldu : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, iwork : LibC::Int*, rwork : LibC::Double*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cgtcon = cgtcon_(norm : LibC::Char*, n : LibC::Int*, dl : ComplexFloat*, d : ComplexFloat*, du : ComplexFloat*, du2 : ComplexFloat*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, info : LibC::Int*)
     fun dgtcon = dgtcon_(norm : LibC::Char*, n : LibC::Int*, dl : LibC::Double*, d : LibC::Double*, du : LibC::Double*, du2 : LibC::Double*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgtcon = sgtcon_(norm : LibC::Char*, n : LibC::Int*, dl : LibC::Float*, d : LibC::Float*, du : LibC::Float*, du2 : LibC::Float*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgtcon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgtrfs because the type `lapack_complex_float` is not defined in this library.
+    fun zgtcon = zgtcon_(norm : LibC::Char*, n : LibC::Int*, dl : ComplexDouble*, d : ComplexDouble*, du : ComplexDouble*, du2 : ComplexDouble*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, info : LibC::Int*)
+    fun cgtrfs = cgtrfs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : ComplexFloat*, d : ComplexFloat*, du : ComplexFloat*, dlf : ComplexFloat*, df : ComplexFloat*, duf : ComplexFloat*, du2 : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgtrfs = dgtrfs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : LibC::Double*, d : LibC::Double*, du : LibC::Double*, dlf : LibC::Double*, df : LibC::Double*, duf : LibC::Double*, du2 : LibC::Double*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgtrfs = sgtrfs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : LibC::Float*, d : LibC::Float*, du : LibC::Float*, dlf : LibC::Float*, df : LibC::Float*, duf : LibC::Float*, du2 : LibC::Float*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgtrfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgtsv because the type `lapack_complex_float` is not defined in this library.
+    fun zgtrfs = zgtrfs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : ComplexDouble*, d : ComplexDouble*, du : ComplexDouble*, dlf : ComplexDouble*, df : ComplexDouble*, duf : ComplexDouble*, du2 : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgtsv = cgtsv_(n : LibC::Int*, nrhs : LibC::Int*, dl : ComplexFloat*, d : ComplexFloat*, du : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dgtsv = dgtsv_(n : LibC::Int*, nrhs : LibC::Int*, dl : LibC::Double*, d : LibC::Double*, du : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sgtsv = sgtsv_(n : LibC::Int*, nrhs : LibC::Int*, dl : LibC::Float*, d : LibC::Float*, du : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zgtsv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgtsvx because the type `lapack_complex_float` is not defined in this library.
+    fun zgtsv = zgtsv_(n : LibC::Int*, nrhs : LibC::Int*, dl : ComplexDouble*, d : ComplexDouble*, du : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cgtsvx = cgtsvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : ComplexFloat*, d : ComplexFloat*, du : ComplexFloat*, dlf : ComplexFloat*, df : ComplexFloat*, duf : ComplexFloat*, du2 : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dgtsvx = dgtsvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : LibC::Double*, d : LibC::Double*, du : LibC::Double*, dlf : LibC::Double*, df : LibC::Double*, duf : LibC::Double*, du2 : LibC::Double*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sgtsvx = sgtsvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : LibC::Float*, d : LibC::Float*, du : LibC::Float*, dlf : LibC::Float*, df : LibC::Float*, duf : LibC::Float*, du2 : LibC::Float*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zgtsvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgttrf because the type `lapack_complex_float` is not defined in this library.
+    fun zgtsvx = zgtsvx_(fact : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : ComplexDouble*, d : ComplexDouble*, du : ComplexDouble*, dlf : ComplexDouble*, df : ComplexDouble*, duf : ComplexDouble*, du2 : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cgttrf = cgttrf_(n : LibC::Int*, dl : ComplexFloat*, d : ComplexFloat*, du : ComplexFloat*, du2 : ComplexFloat*, ipiv : LibC::Int*, info : LibC::Int*)
     fun dgttrf = dgttrf_(n : LibC::Int*, dl : LibC::Double*, d : LibC::Double*, du : LibC::Double*, du2 : LibC::Double*, ipiv : LibC::Int*, info : LibC::Int*)
     fun sgttrf = sgttrf_(n : LibC::Int*, dl : LibC::Float*, d : LibC::Float*, du : LibC::Float*, du2 : LibC::Float*, ipiv : LibC::Int*, info : LibC::Int*)
-    # Excluded zgttrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cgttrs because the type `lapack_complex_float` is not defined in this library.
+    fun zgttrf = zgttrf_(n : LibC::Int*, dl : ComplexDouble*, d : ComplexDouble*, du : ComplexDouble*, du2 : ComplexDouble*, ipiv : LibC::Int*, info : LibC::Int*)
+    fun cgttrs = cgttrs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : ComplexFloat*, d : ComplexFloat*, du : ComplexFloat*, du2 : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dgttrs = dgttrs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : LibC::Double*, d : LibC::Double*, du : LibC::Double*, du2 : LibC::Double*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sgttrs = sgttrs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : LibC::Float*, d : LibC::Float*, du : LibC::Float*, du2 : LibC::Float*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zgttrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbev because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbev because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbev_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbev_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbevd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbevd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbevd_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbevd_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbevx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbevx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbevx_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbevx_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbgst because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbgst because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbgv because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbgv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbgvd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbgvd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbgvx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbgvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chbtrd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhbtrd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded checon because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhecon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded checon_3 because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhecon_3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheequb because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheequb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheev because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheev because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheev_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheev_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheevd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheevd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheevd_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheevd_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheevr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheevr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheevr_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheevr_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheevx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheevx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheevx_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheevx_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chegst because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhegst because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chegv because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhegv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chegv_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhegv_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chegvd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhegvd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chegvx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhegvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cherfs because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zherfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cherfsx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zherfsx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chesv because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhesv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chesv_aa because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhesv_aa because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chesv_aa_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhesv_aa_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chesv_rk because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhesv_rk because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chesv_rook because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhesv_rook because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chesvx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhesvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chesvxx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhesvxx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cheswapr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zheswapr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrd_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrd_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrf because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrf_aa because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrf_aa because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrf_aa_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrf_aa_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrf_rk because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrf_rk because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrf_rook because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrf_rook because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetri because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetri2 because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetri2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetri2x because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetri2x because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetri_3 because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetri_3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrs because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrs2 because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrs2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrs_3 because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrs_3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrs_aa because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrs_aa because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrs_aa_2stage because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrs_aa_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chetrs_rook because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhetrs_rook because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chfrk because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhfrk because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chgeqz because the type `lapack_complex_float` is not defined in this library.
+    fun zgttrs = zgttrs_(trans : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, dl : ComplexDouble*, d : ComplexDouble*, du : ComplexDouble*, du2 : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun chbev = chbev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhbev = zhbev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chbev_2stage = chbev_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhbev_2stage = zhbev_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chbevd = chbevd_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zhbevd = zhbevd_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun chbevd_2stage = chbevd_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zhbevd_2stage = zhbevd_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun chbevx = chbevx_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun zhbevx = zhbevx_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun chbevx_2stage = chbevx_2stage_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun zhbevx_2stage = zhbevx_2stage_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun chbgst = chbgst_(vect : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ka : LibC::Int*, kb : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, bb : ComplexFloat*, ldbb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhbgst = zhbgst_(vect : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ka : LibC::Int*, kb : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, bb : ComplexDouble*, ldbb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chbgv = chbgv_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ka : LibC::Int*, kb : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, bb : ComplexFloat*, ldbb : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhbgv = zhbgv_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ka : LibC::Int*, kb : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, bb : ComplexDouble*, ldbb : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chbgvd = chbgvd_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ka : LibC::Int*, kb : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, bb : ComplexFloat*, ldbb : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zhbgvd = zhbgvd_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ka : LibC::Int*, kb : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, bb : ComplexDouble*, ldbb : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun chbgvx = chbgvx_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ka : LibC::Int*, kb : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, bb : ComplexFloat*, ldbb : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun zhbgvx = zhbgvx_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ka : LibC::Int*, kb : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, bb : ComplexDouble*, ldbb : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun chbtrd = chbtrd_(vect : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, d : LibC::Float*, e : LibC::Float*, q : ComplexFloat*, ldq : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
+    fun zhbtrd = zhbtrd_(vect : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, d : LibC::Double*, e : LibC::Double*, q : ComplexDouble*, ldq : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun checon = checon_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, info : LibC::Int*)
+    fun zhecon = zhecon_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, info : LibC::Int*)
+    fun checon_3 = checon_3_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, info : LibC::Int*)
+    fun zhecon_3 = zhecon_3_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, info : LibC::Int*)
+    fun cheequb = cheequb_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, work : ComplexFloat*, info : LibC::Int*)
+    fun zheequb = zheequb_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, work : ComplexDouble*, info : LibC::Int*)
+    fun cheev = cheev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, w : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zheev = zheev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, w : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cheev_2stage = cheev_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, w : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zheev_2stage = zheev_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, w : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cheevd = cheevd_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, w : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zheevd = zheevd_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, w : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun cheevd_2stage = cheevd_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, w : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zheevd_2stage = zheevd_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, w : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun cheevr = cheevr_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, isuppz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zheevr = zheevr_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, isuppz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun cheevr_2stage = cheevr_2stage_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, isuppz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zheevr_2stage = zheevr_2stage_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, isuppz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun cheevx = cheevx_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun zheevx = zheevx_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun cheevx_2stage = cheevx_2stage_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun zheevx_2stage = zheevx_2stage_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    # Excluded chegst because the type `const lapack_complex_float` is not defined in this library.
+    # Excluded zhegst because the type `const lapack_complex_double` is not defined in this library.
+    fun chegv = chegv_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, w : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhegv = zhegv_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, w : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chegv_2stage = chegv_2stage_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, w : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhegv_2stage = zhegv_2stage_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, w : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chegvd = chegvd_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, w : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zhegvd = zhegvd_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, w : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun chegvx = chegvx_(itype : LibC::Int*, jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun zhegvx = zhegvx_(itype : LibC::Int*, jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun cherfs = cherfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zherfs = zherfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    # Excluded cherfsx because the type `const float` is not defined in this library.
+    # Excluded zherfsx because the type `const double` is not defined in this library.
+    fun chesv = chesv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhesv = zhesv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chesv_aa = chesv_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhesv_aa = zhesv_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chesv_aa_2stage = chesv_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tb : ComplexFloat*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhesv_aa_2stage = zhesv_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tb : ComplexDouble*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chesv_rk = chesv_rk_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhesv_rk = zhesv_rk_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chesv_rook = chesv_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhesv_rook = zhesv_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chesvx = chesvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhesvx = zhesvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chesvxx = chesvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, s : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, rpvgrw : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhesvxx = zhesvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, s : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, rpvgrw : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cheswapr = cheswapr_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, i1 : LibC::Int*, i2 : LibC::Int*)
+    fun zheswapr = zheswapr_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, i1 : LibC::Int*, i2 : LibC::Int*)
+    fun chetrd = chetrd_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, d : LibC::Float*, e : LibC::Float*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetrd = zhetrd_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, d : LibC::Double*, e : LibC::Double*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetrd_2stage = chetrd_2stage_(vect : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, d : LibC::Float*, e : LibC::Float*, tau : ComplexFloat*, hous2 : ComplexFloat*, lhous2 : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetrd_2stage = zhetrd_2stage_(vect : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, d : LibC::Double*, e : LibC::Double*, tau : ComplexDouble*, hous2 : ComplexDouble*, lhous2 : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetrf = chetrf_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetrf = zhetrf_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetrf_aa = chetrf_aa_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetrf_aa = zhetrf_aa_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetrf_aa_2stage = chetrf_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tb : ComplexFloat*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetrf_aa_2stage = zhetrf_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tb : ComplexDouble*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetrf_rk = chetrf_rk_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetrf_rk = zhetrf_rk_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetrf_rook = chetrf_rook_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetrf_rook = zhetrf_rook_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetri = chetri_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
+    fun zhetri = zhetri_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun chetri2 = chetri2_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetri2 = zhetri2_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetri2x = chetri2x_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, nb : LibC::Int*, info : LibC::Int*)
+    fun zhetri2x = zhetri2x_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, nb : LibC::Int*, info : LibC::Int*)
+    fun chetri_3 = chetri_3_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetri_3 = zhetri_3_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetrs = chetrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
+    fun zhetrs = zhetrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun chetrs2 = chetrs2_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
+    fun zhetrs2 = zhetrs2_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun chetrs_3 = chetrs_3_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
+    fun zhetrs_3 = zhetrs_3_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun chetrs_aa = chetrs_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zhetrs_aa = zhetrs_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun chetrs_aa_2stage = chetrs_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tb : ComplexFloat*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
+    fun zhetrs_aa_2stage = zhetrs_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tb : ComplexDouble*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun chetrs_rook = chetrs_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
+    fun zhetrs_rook = zhetrs_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun chfrk = chfrk_(transr : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, k : LibC::Int*, alpha : LibC::Float*, a : ComplexFloat*, lda : LibC::Int*, beta : LibC::Float*, c : ComplexFloat*)
+    fun zhfrk = zhfrk_(transr : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, k : LibC::Int*, alpha : LibC::Double*, a : ComplexDouble*, lda : LibC::Int*, beta : LibC::Double*, c : ComplexDouble*)
+    fun chgeqz = chgeqz_(job : LibC::Char*, compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, h : ComplexFloat*, ldh : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, alpha : ComplexFloat*, beta : ComplexFloat*, q : ComplexFloat*, ldq : LibC::Int*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dhgeqz = dhgeqz_(job : LibC::Char*, compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, h : LibC::Double*, ldh : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, alphar : LibC::Double*, alphai : LibC::Double*, beta : LibC::Double*, q : LibC::Double*, ldq : LibC::Int*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun shgeqz = shgeqz_(job : LibC::Char*, compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, h : LibC::Float*, ldh : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, alphar : LibC::Float*, alphai : LibC::Float*, beta : LibC::Float*, q : LibC::Float*, ldq : LibC::Int*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zhgeqz because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpcon because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpcon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpev because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpev because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpevd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpevd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpevx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpevx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpgst because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpgst because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpgv because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpgv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpgvd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpgvd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpgvx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpgvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chprfs because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhprfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpsv because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpsv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chpsvx because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhpsvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chptrd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhptrd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chptrf because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhptrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chptri because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhptri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded chptrs because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zhptrs because the type `lapack_complex_double` is not defined in this library.
+    fun zhgeqz = zhgeqz_(job : LibC::Char*, compq : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, h : ComplexDouble*, ldh : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, alpha : ComplexDouble*, beta : ComplexDouble*, q : ComplexDouble*, ldq : LibC::Int*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chpcon = chpcon_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, info : LibC::Int*)
+    fun zhpcon = zhpcon_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, info : LibC::Int*)
+    fun chpev = chpev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhpev = zhpev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chpevd = chpevd_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zhpevd = zhpevd_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun chpevx = chpevx_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun zhpevx = zhpevx_(jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun chpgst = chpgst_(itype : LibC::Int*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, bp : ComplexFloat*, info : LibC::Int*)
+    fun zhpgst = zhpgst_(itype : LibC::Int*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, bp : ComplexDouble*, info : LibC::Int*)
+    fun chpgv = chpgv_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, bp : ComplexFloat*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhpgv = zhpgv_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, bp : ComplexDouble*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chpgvd = chpgvd_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, bp : ComplexFloat*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun zhpgvd = zhpgvd_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, bp : ComplexDouble*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun chpgvx = chpgvx_(itype : LibC::Int*, jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, bp : ComplexFloat*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, rwork : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun zhpgvx = zhpgvx_(itype : LibC::Int*, jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, bp : ComplexDouble*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, rwork : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    fun chprfs = chprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, afp : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhprfs = zhprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, afp : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chpsv = chpsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
+    fun zhpsv = zhpsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun chpsvx = chpsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, afp : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
+    fun zhpsvx = zhpsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, afp : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun chptrd = chptrd_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, d : LibC::Float*, e : LibC::Float*, tau : ComplexFloat*, info : LibC::Int*)
+    fun zhptrd = zhptrd_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, d : LibC::Double*, e : LibC::Double*, tau : ComplexDouble*, info : LibC::Int*)
+    fun chptrf = chptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, info : LibC::Int*)
+    fun zhptrf = zhptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, info : LibC::Int*)
+    fun chptri = chptri_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
+    fun zhptri = zhptri_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun chptrs = chptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
+    fun zhptrs = zhptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
     # Excluded chsein because the type `lapack_logical` is not defined in this library.
     # Excluded dhsein because the type `lapack_logical` is not defined in this library.
     # Excluded shsein because the type `lapack_logical` is not defined in this library.
     # Excluded zhsein because the type `lapack_logical` is not defined in this library.
-    # Excluded chseqr because the type `lapack_complex_float` is not defined in this library.
+    fun chseqr = chseqr_(job : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, h : ComplexFloat*, ldh : LibC::Int*, w : ComplexFloat*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dhseqr = dhseqr_(job : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, h : LibC::Double*, ldh : LibC::Int*, wr : LibC::Double*, wi : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun shseqr = shseqr_(job : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, h : LibC::Float*, ldh : LibC::Int*, wr : LibC::Float*, wi : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zhseqr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clacgv because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zlacgv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clacn2 because the type `lapack_complex_float` is not defined in this library.
+    fun zhseqr = zhseqr_(job : LibC::Char*, compz : LibC::Char*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, h : ComplexDouble*, ldh : LibC::Int*, w : ComplexDouble*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun clacgv = clacgv_(n : LibC::Int*, x : ComplexFloat*, incx : LibC::Int*)
+    fun zlacgv = zlacgv_(n : LibC::Int*, x : ComplexDouble*, incx : LibC::Int*)
+    fun clacn2 = clacn2_(n : LibC::Int*, v : ComplexFloat*, x : ComplexFloat*, est : LibC::Float*, kase : LibC::Int*, isave : LibC::Int*)
     fun dlacn2 = dlacn2_(n : LibC::Int*, v : LibC::Double*, x : LibC::Double*, isgn : LibC::Int*, est : LibC::Double*, kase : LibC::Int*, isave : LibC::Int*)
     fun slacn2 = slacn2_(n : LibC::Int*, v : LibC::Float*, x : LibC::Float*, isgn : LibC::Int*, est : LibC::Float*, kase : LibC::Int*, isave : LibC::Int*)
-    # Excluded zlacn2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clacp2 because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zlacp2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clacpy because the type `lapack_complex_float` is not defined in this library.
+    fun zlacn2 = zlacn2_(n : LibC::Int*, v : ComplexDouble*, x : ComplexDouble*, est : LibC::Double*, kase : LibC::Int*, isave : LibC::Int*)
+    fun clacp2 = clacp2_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*)
+    fun zlacp2 = zlacp2_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*)
+    fun clacpy = clacpy_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*)
     fun dlacpy = dlacpy_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*)
     fun slacpy = slacpy_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*)
-    # Excluded zlacpy because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clacrm because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zlacrm because the type `lapack_complex_double` is not defined in this library.
-    # Excluded zlag2c because the type `lapack_complex_double` is not defined in this library.
+    fun zlacpy = zlacpy_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*)
+    fun clacrm = clacrm_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, rwork : LibC::Float*)
+    fun zlacrm = zlacrm_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, rwork : LibC::Double*)
+    fun zlag2c = zlag2c_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, sa : ComplexFloat*, ldsa : LibC::Int*, info : LibC::Int*)
     fun slag2d = slag2d_(m : LibC::Int*, n : LibC::Int*, sa : LibC::Float*, ldsa : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun dlag2s = dlag2s_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, sa : LibC::Float*, ldsa : LibC::Int*, info : LibC::Int*)
-    # Excluded clag2z because the type `lapack_complex_float` is not defined in this library.
-    # Excluded clagge because the type `lapack_complex_float` is not defined in this library.
+    fun clag2z = clag2z_(m : LibC::Int*, n : LibC::Int*, sa : ComplexFloat*, ldsa : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
+    fun clagge = clagge_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, d : LibC::Float*, a : ComplexFloat*, lda : LibC::Int*, iseed : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dlagge = dlagge_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, d : LibC::Double*, a : LibC::Double*, lda : LibC::Int*, iseed : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun slagge = slagge_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, d : LibC::Float*, a : LibC::Float*, lda : LibC::Int*, iseed : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zlagge because the type `lapack_complex_double` is not defined in this library.
-    # Excluded claghe because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zlaghe because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clagsy because the type `lapack_complex_float` is not defined in this library.
+    fun zlagge = zlagge_(m : LibC::Int*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, d : LibC::Double*, a : ComplexDouble*, lda : LibC::Int*, iseed : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun claghe = claghe_(n : LibC::Int*, k : LibC::Int*, d : LibC::Float*, a : ComplexFloat*, lda : LibC::Int*, iseed : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
+    fun zlaghe = zlaghe_(n : LibC::Int*, k : LibC::Int*, d : LibC::Double*, a : ComplexDouble*, lda : LibC::Int*, iseed : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun clagsy = clagsy_(n : LibC::Int*, k : LibC::Int*, d : LibC::Float*, a : ComplexFloat*, lda : LibC::Int*, iseed : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dlagsy = dlagsy_(n : LibC::Int*, k : LibC::Int*, d : LibC::Double*, a : LibC::Double*, lda : LibC::Int*, iseed : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun slagsy = slagsy_(n : LibC::Int*, k : LibC::Int*, d : LibC::Float*, a : LibC::Float*, lda : LibC::Int*, iseed : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zlagsy because the type `lapack_complex_double` is not defined in this library.
+    fun zlagsy = zlagsy_(n : LibC::Int*, k : LibC::Int*, d : LibC::Double*, a : ComplexDouble*, lda : LibC::Int*, iseed : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
     fun dlamch = dlamch_(cmach : LibC::Char*)
     fun slamch = slamch_(cmach : LibC::Char*)
-    # Excluded clangb because the type `lapack_complex_float` is not defined in this library.
+    fun clangb = clangb_(norm : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, work : LibC::Float*)
     fun dlangb = dlangb_(norm : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, work : LibC::Double*)
     fun slangb = slangb_(norm : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, work : LibC::Float*)
-    # Excluded zlangb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clange because the type `lapack_complex_float` is not defined in this library.
+    fun zlangb = zlangb_(norm : LibC::Char*, n : LibC::Int*, kl : LibC::Int*, ku : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, work : LibC::Double*)
+    fun clange = clange_(norm : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, work : LibC::Float*)
     fun dlange = dlange_(norm : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, work : LibC::Double*)
     fun slange = slange_(norm : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, work : LibC::Float*)
-    # Excluded zlange because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clangt because the type `lapack_complex_float` is not defined in this library.
+    fun zlange = zlange_(norm : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, work : LibC::Double*)
+    fun clangt = clangt_(norm : LibC::Char*, n : LibC::Int*, dl : ComplexFloat*, d : ComplexFloat*, du : ComplexFloat*)
     fun dlangt = dlangt_(norm : LibC::Char*, n : LibC::Int*, dl : LibC::Double*, d : LibC::Double*, du : LibC::Double*)
     fun slangt = slangt_(norm : LibC::Char*, n : LibC::Int*, dl : LibC::Float*, d : LibC::Float*, du : LibC::Float*)
-    # Excluded zlangt because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clanhb because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zlanhb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clanhe because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zlanhe because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clanhp because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zlanhp because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clanhs because the type `lapack_complex_float` is not defined in this library.
+    fun zlangt = zlangt_(norm : LibC::Char*, n : LibC::Int*, dl : ComplexDouble*, d : ComplexDouble*, du : ComplexDouble*)
+    fun clanhb = clanhb_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, work : LibC::Float*)
+    fun zlanhb = zlanhb_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, work : LibC::Double*)
+    fun clanhe = clanhe_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, work : LibC::Float*)
+    fun zlanhe = zlanhe_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, work : LibC::Double*)
+    fun clanhp = clanhp_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, work : LibC::Float*)
+    fun zlanhp = zlanhp_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, work : LibC::Double*)
+    fun clanhs = clanhs_(norm : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, work : LibC::Float*)
     fun dlanhs = dlanhs_(norm : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, work : LibC::Double*)
     fun slanhs = slanhs_(norm : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, work : LibC::Float*)
-    # Excluded zlanhs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clanht because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zlanht because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clansb because the type `lapack_complex_float` is not defined in this library.
+    fun zlanhs = zlanhs_(norm : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, work : LibC::Double*)
+    fun clanht = clanht_(norm : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : ComplexFloat*)
+    fun zlanht = zlanht_(norm : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : ComplexDouble*)
+    fun clansb = clansb_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, work : LibC::Float*)
     fun dlansb = dlansb_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, work : LibC::Double*)
     fun slansb = slansb_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, work : LibC::Float*)
-    # Excluded zlansb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clansp because the type `lapack_complex_float` is not defined in this library.
+    fun zlansb = zlansb_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, work : LibC::Double*)
+    fun clansp = clansp_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, work : LibC::Float*)
     fun dlansp = dlansp_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, work : LibC::Double*)
     fun slansp = slansp_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, work : LibC::Float*)
-    # Excluded zlansp because the type `lapack_complex_double` is not defined in this library.
+    fun zlansp = zlansp_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, work : LibC::Double*)
     fun dlanst = dlanst_(norm : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*)
     fun slanst = slanst_(norm : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*)
-    # Excluded clansy because the type `lapack_complex_float` is not defined in this library.
+    fun clansy = clansy_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, work : LibC::Float*)
     fun dlansy = dlansy_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, work : LibC::Double*)
     fun slansy = slansy_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, work : LibC::Float*)
-    # Excluded zlansy because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clantb because the type `lapack_complex_float` is not defined in this library.
+    fun zlansy = zlansy_(norm : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, work : LibC::Double*)
+    fun clantb = clantb_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, work : LibC::Float*)
     fun dlantb = dlantb_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, work : LibC::Double*)
     fun slantb = slantb_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, work : LibC::Float*)
-    # Excluded zlantb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clantp because the type `lapack_complex_float` is not defined in this library.
+    fun zlantb = zlantb_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, k : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, work : LibC::Double*)
+    fun clantp = clantp_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, work : LibC::Float*)
     fun dlantp = dlantp_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, work : LibC::Double*)
     fun slantp = slantp_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, work : LibC::Float*)
-    # Excluded zlantp because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clantr because the type `lapack_complex_float` is not defined in this library.
+    fun zlantp = zlantp_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, work : LibC::Double*)
+    fun clantr = clantr_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, work : LibC::Float*)
     fun dlantr = dlantr_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, work : LibC::Double*)
     fun slantr = slantr_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, work : LibC::Float*)
-    # Excluded zlantr because the type `lapack_complex_double` is not defined in this library.
+    fun zlantr = zlantr_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, work : LibC::Double*)
     # Excluded clapmr because the type `lapack_logical` is not defined in this library.
     # Excluded dlapmr because the type `lapack_logical` is not defined in this library.
     # Excluded slapmr because the type `lapack_logical` is not defined in this library.
@@ -609,62 +609,62 @@ module OpenBLAS
     fun slapy2 = slapy2_(x : LibC::Float*, y : LibC::Float*)
     fun dlapy3 = dlapy3_(x : LibC::Double*, y : LibC::Double*, z : LibC::Double*)
     fun slapy3 = slapy3_(x : LibC::Float*, y : LibC::Float*, z : LibC::Float*)
-    # Excluded clarcm because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zlarcm because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clarf because the type `lapack_complex_float` is not defined in this library.
+    fun clarcm = clarcm_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, rwork : LibC::Float*)
+    fun zlarcm = zlarcm_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, rwork : LibC::Double*)
+    fun clarf = clarf_(side : LibC::Char*, m : LibC::Int*, n : LibC::Int*, v : ComplexFloat*, incv : LibC::Int*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*)
     fun dlarf = dlarf_(side : LibC::Char*, m : LibC::Int*, n : LibC::Int*, v : LibC::Double*, incv : LibC::Int*, tau : LibC::Double*, c : LibC::Double*, ldc : LibC::Int*, work : LibC::Double*)
     fun slarf = slarf_(side : LibC::Char*, m : LibC::Int*, n : LibC::Int*, v : LibC::Float*, incv : LibC::Int*, tau : LibC::Float*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*)
-    # Excluded zlarf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clarfb because the type `lapack_complex_float` is not defined in this library.
+    fun zlarf = zlarf_(side : LibC::Char*, m : LibC::Int*, n : LibC::Int*, v : ComplexDouble*, incv : LibC::Int*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*)
+    fun clarfb = clarfb_(side : LibC::Char*, trans : LibC::Char*, direct : LibC::Char*, storev : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, ldwork : LibC::Int*)
     fun dlarfb = dlarfb_(side : LibC::Char*, trans : LibC::Char*, direct : LibC::Char*, storev : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, c : LibC::Double*, ldc : LibC::Int*, work : LibC::Double*, ldwork : LibC::Int*)
     fun slarfb = slarfb_(side : LibC::Char*, trans : LibC::Char*, direct : LibC::Char*, storev : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*, ldwork : LibC::Int*)
-    # Excluded zlarfb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clarfg because the type `lapack_complex_float` is not defined in this library.
+    fun zlarfb = zlarfb_(side : LibC::Char*, trans : LibC::Char*, direct : LibC::Char*, storev : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, ldwork : LibC::Int*)
+    fun clarfg = clarfg_(n : LibC::Int*, alpha : ComplexFloat*, x : ComplexFloat*, incx : LibC::Int*, tau : ComplexFloat*)
     fun dlarfg = dlarfg_(n : LibC::Int*, alpha : LibC::Double*, x : LibC::Double*, incx : LibC::Int*, tau : LibC::Double*)
     fun slarfg = slarfg_(n : LibC::Int*, alpha : LibC::Float*, x : LibC::Float*, incx : LibC::Int*, tau : LibC::Float*)
-    # Excluded zlarfg because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clarft because the type `lapack_complex_float` is not defined in this library.
+    fun zlarfg = zlarfg_(n : LibC::Int*, alpha : ComplexDouble*, x : ComplexDouble*, incx : LibC::Int*, tau : ComplexDouble*)
+    fun clarft = clarft_(direct : LibC::Char*, storev : LibC::Char*, n : LibC::Int*, k : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, tau : ComplexFloat*, t : ComplexFloat*, ldt : LibC::Int*)
     fun dlarft = dlarft_(direct : LibC::Char*, storev : LibC::Char*, n : LibC::Int*, k : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, tau : LibC::Double*, t : LibC::Double*, ldt : LibC::Int*)
     fun slarft = slarft_(direct : LibC::Char*, storev : LibC::Char*, n : LibC::Int*, k : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, tau : LibC::Float*, t : LibC::Float*, ldt : LibC::Int*)
-    # Excluded zlarft because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clarfx because the type `lapack_complex_float` is not defined in this library.
+    fun zlarft = zlarft_(direct : LibC::Char*, storev : LibC::Char*, n : LibC::Int*, k : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, tau : ComplexDouble*, t : ComplexDouble*, ldt : LibC::Int*)
+    fun clarfx = clarfx_(side : LibC::Char*, m : LibC::Int*, n : LibC::Int*, v : ComplexFloat*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*)
     fun dlarfx = dlarfx_(side : LibC::Char*, m : LibC::Int*, n : LibC::Int*, v : LibC::Double*, tau : LibC::Double*, c : LibC::Double*, ldc : LibC::Int*, work : LibC::Double*)
     fun slarfx = slarfx_(side : LibC::Char*, m : LibC::Int*, n : LibC::Int*, v : LibC::Float*, tau : LibC::Float*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*)
-    # Excluded zlarfx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clarnv because the type `lapack_complex_float` is not defined in this library.
+    fun zlarfx = zlarfx_(side : LibC::Char*, m : LibC::Int*, n : LibC::Int*, v : ComplexDouble*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*)
+    fun clarnv = clarnv_(idist : LibC::Int*, iseed : LibC::Int*, n : LibC::Int*, x : ComplexFloat*)
     fun dlarnv = dlarnv_(idist : LibC::Int*, iseed : LibC::Int*, n : LibC::Int*, x : LibC::Double*)
     fun slarnv = slarnv_(idist : LibC::Int*, iseed : LibC::Int*, n : LibC::Int*, x : LibC::Float*)
-    # Excluded zlarnv because the type `lapack_complex_double` is not defined in this library.
+    fun zlarnv = zlarnv_(idist : LibC::Int*, iseed : LibC::Int*, n : LibC::Int*, x : ComplexDouble*)
     fun dlartgp = dlartgp_(f : LibC::Double*, g : LibC::Double*, cs : LibC::Double*, sn : LibC::Double*, r : LibC::Double*)
     fun slartgp = slartgp_(f : LibC::Float*, g : LibC::Float*, cs : LibC::Float*, sn : LibC::Float*, r : LibC::Float*)
     fun dlartgs = dlartgs_(x : LibC::Double*, y : LibC::Double*, sigma : LibC::Double*, cs : LibC::Double*, sn : LibC::Double*)
     fun slartgs = slartgs_(x : LibC::Float*, y : LibC::Float*, sigma : LibC::Float*, cs : LibC::Float*, sn : LibC::Float*)
-    # Excluded clascl because the type `lapack_complex_float` is not defined in this library.
+    fun clascl = clascl_(type : LibC::Char*, kl : LibC::Int*, ku : LibC::Int*, cfrom : LibC::Float*, cto : LibC::Float*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, info : LibC::Int*)
     fun dlascl = dlascl_(type : LibC::Char*, kl : LibC::Int*, ku : LibC::Int*, cfrom : LibC::Double*, cto : LibC::Double*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun slascl = slascl_(type : LibC::Char*, kl : LibC::Int*, ku : LibC::Int*, cfrom : LibC::Float*, cto : LibC::Float*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, info : LibC::Int*)
-    # Excluded zlascl because the type `lapack_complex_double` is not defined in this library.
-    # Excluded claset because the type `lapack_complex_float` is not defined in this library.
+    fun zlascl = zlascl_(type : LibC::Char*, kl : LibC::Int*, ku : LibC::Int*, cfrom : LibC::Double*, cto : LibC::Double*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
+    fun claset = claset_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, alpha : ComplexFloat*, beta : ComplexFloat*, a : ComplexFloat*, lda : LibC::Int*)
     fun dlaset = dlaset_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, alpha : LibC::Double*, beta : LibC::Double*, a : LibC::Double*, lda : LibC::Int*)
     fun slaset = slaset_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, alpha : LibC::Float*, beta : LibC::Float*, a : LibC::Float*, lda : LibC::Int*)
-    # Excluded zlaset because the type `lapack_complex_double` is not defined in this library.
+    fun zlaset = zlaset_(uplo : LibC::Char*, m : LibC::Int*, n : LibC::Int*, alpha : ComplexDouble*, beta : ComplexDouble*, a : ComplexDouble*, lda : LibC::Int*)
     fun dlasrt = dlasrt_(id : LibC::Char*, n : LibC::Int*, d : LibC::Double*, info : LibC::Int*)
     fun slasrt = slasrt_(id : LibC::Char*, n : LibC::Int*, d : LibC::Float*, info : LibC::Int*)
-    # Excluded classq because the type `lapack_complex_float` is not defined in this library.
+    fun classq = classq_(n : LibC::Int*, x : ComplexFloat*, incx : LibC::Int*, scale : LibC::Float*, sumsq : LibC::Float*)
     fun dlassq = dlassq_(n : LibC::Int*, x : LibC::Double*, incx : LibC::Int*, scale : LibC::Double*, sumsq : LibC::Double*)
     fun slassq = slassq_(n : LibC::Int*, x : LibC::Float*, incx : LibC::Int*, scale : LibC::Float*, sumsq : LibC::Float*)
-    # Excluded zlassq because the type `lapack_complex_double` is not defined in this library.
-    # Excluded claswp because the type `lapack_complex_float` is not defined in this library.
+    fun zlassq = zlassq_(n : LibC::Int*, x : ComplexDouble*, incx : LibC::Int*, scale : LibC::Double*, sumsq : LibC::Double*)
+    fun claswp = claswp_(n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, k1 : LibC::Int*, k2 : LibC::Int*, ipiv : LibC::Int*, incx : LibC::Int*)
     fun dlaswp = dlaswp_(n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, k1 : LibC::Int*, k2 : LibC::Int*, ipiv : LibC::Int*, incx : LibC::Int*)
     fun slaswp = slaswp_(n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, k1 : LibC::Int*, k2 : LibC::Int*, ipiv : LibC::Int*, incx : LibC::Int*)
-    # Excluded zlaswp because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clatms because the type `lapack_complex_float` is not defined in this library.
+    fun zlaswp = zlaswp_(n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, k1 : LibC::Int*, k2 : LibC::Int*, ipiv : LibC::Int*, incx : LibC::Int*)
+    fun clatms = clatms_(m : LibC::Int*, n : LibC::Int*, dist : LibC::Char*, iseed : LibC::Int*, sym : LibC::Char*, d : LibC::Float*, mode : LibC::Int*, cond : LibC::Float*, dmax : LibC::Float*, kl : LibC::Int*, ku : LibC::Int*, pack : LibC::Char*, a : ComplexFloat*, lda : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dlatms = dlatms_(m : LibC::Int*, n : LibC::Int*, dist : LibC::Char*, iseed : LibC::Int*, sym : LibC::Char*, d : LibC::Double*, mode : LibC::Int*, cond : LibC::Double*, dmax : LibC::Double*, kl : LibC::Int*, ku : LibC::Int*, pack : LibC::Char*, a : LibC::Double*, lda : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun slatms = slatms_(m : LibC::Int*, n : LibC::Int*, dist : LibC::Char*, iseed : LibC::Int*, sym : LibC::Char*, d : LibC::Float*, mode : LibC::Int*, cond : LibC::Float*, dmax : LibC::Float*, kl : LibC::Int*, ku : LibC::Int*, pack : LibC::Char*, a : LibC::Float*, lda : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zlatms because the type `lapack_complex_double` is not defined in this library.
-    # Excluded clauum because the type `lapack_complex_float` is not defined in this library.
+    fun zlatms = zlatms_(m : LibC::Int*, n : LibC::Int*, dist : LibC::Char*, iseed : LibC::Int*, sym : LibC::Char*, d : LibC::Double*, mode : LibC::Int*, cond : LibC::Double*, dmax : LibC::Double*, kl : LibC::Int*, ku : LibC::Int*, pack : LibC::Char*, a : ComplexDouble*, lda : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun clauum = clauum_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, info : LibC::Int*)
     fun dlauum = dlauum_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun slauum = slauum_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, info : LibC::Int*)
-    # Excluded zlauum because the type `lapack_complex_double` is not defined in this library.
+    fun zlauum = zlauum_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
     fun ilaver = ilaver_(vers_major : LibC::Int*, vers_minor : LibC::Int*, vers_patch : LibC::Int*)
     fun dopgtr = dopgtr_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, tau : LibC::Double*, q : LibC::Double*, ldq : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun sopgtr = sopgtr_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, tau : LibC::Float*, q : LibC::Float*, ldq : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
@@ -708,168 +708,168 @@ module OpenBLAS
     fun sormrz = sormrz_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
     fun dormtr = dormtr_(side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, c : LibC::Double*, ldc : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun sormtr = sormtr_(side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, c : LibC::Float*, ldc : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded cpbcon because the type `lapack_complex_float` is not defined in this library.
+    fun cpbcon = cpbcon_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dpbcon = dpbcon_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun spbcon = spbcon_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zpbcon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpbequ because the type `lapack_complex_float` is not defined in this library.
+    fun zpbcon = zpbcon_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cpbequ = cpbequ_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
     fun dpbequ = dpbequ_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
     fun spbequ = spbequ_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
-    # Excluded zpbequ because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpbrfs because the type `lapack_complex_float` is not defined in this library.
+    fun zpbequ = zpbequ_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
+    fun cpbrfs = cpbrfs_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, afb : ComplexFloat*, ldafb : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dpbrfs = dpbrfs_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, afb : LibC::Double*, ldafb : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun spbrfs = spbrfs_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, afb : LibC::Float*, ldafb : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zpbrfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpbstf because the type `lapack_complex_float` is not defined in this library.
+    fun zpbrfs = zpbrfs_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, afb : ComplexDouble*, ldafb : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cpbstf = cpbstf_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, info : LibC::Int*)
     fun dpbstf = dpbstf_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, info : LibC::Int*)
     fun spbstf = spbstf_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, info : LibC::Int*)
-    # Excluded zpbstf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpbsv because the type `lapack_complex_float` is not defined in this library.
+    fun zpbstf = zpbstf_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, info : LibC::Int*)
+    fun cpbsv = cpbsv_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dpbsv = dpbsv_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun spbsv = spbsv_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zpbsv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpbsvx because the type `lapack_complex_float` is not defined in this library.
+    fun zpbsv = zpbsv_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cpbsvx = cpbsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, afb : ComplexFloat*, ldafb : LibC::Int*, equed : LibC::Char*, s : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dpbsvx = dpbsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, afb : LibC::Double*, ldafb : LibC::Int*, equed : LibC::Char*, s : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun spbsvx = spbsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, afb : LibC::Float*, ldafb : LibC::Int*, equed : LibC::Char*, s : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zpbsvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpbtrf because the type `lapack_complex_float` is not defined in this library.
+    fun zpbsvx = zpbsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, afb : ComplexDouble*, ldafb : LibC::Int*, equed : LibC::Char*, s : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cpbtrf = cpbtrf_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, info : LibC::Int*)
     fun dpbtrf = dpbtrf_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, info : LibC::Int*)
     fun spbtrf = spbtrf_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, info : LibC::Int*)
-    # Excluded zpbtrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpbtrs because the type `lapack_complex_float` is not defined in this library.
+    fun zpbtrf = zpbtrf_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, info : LibC::Int*)
+    fun cpbtrs = cpbtrs_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dpbtrs = dpbtrs_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun spbtrs = spbtrs_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zpbtrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpftrf because the type `lapack_complex_float` is not defined in this library.
+    fun zpbtrs = zpbtrs_(uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cpftrf = cpftrf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, info : LibC::Int*)
     fun dpftrf = dpftrf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, info : LibC::Int*)
     fun spftrf = spftrf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, info : LibC::Int*)
-    # Excluded zpftrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpftri because the type `lapack_complex_float` is not defined in this library.
+    fun zpftrf = zpftrf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, info : LibC::Int*)
+    fun cpftri = cpftri_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, info : LibC::Int*)
     fun dpftri = dpftri_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, info : LibC::Int*)
     fun spftri = spftri_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, info : LibC::Int*)
-    # Excluded zpftri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpftrs because the type `lapack_complex_float` is not defined in this library.
+    fun zpftri = zpftri_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, info : LibC::Int*)
+    fun cpftrs = cpftrs_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dpftrs = dpftrs_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun spftrs = spftrs_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zpftrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpocon because the type `lapack_complex_float` is not defined in this library.
+    fun zpftrs = zpftrs_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cpocon = cpocon_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dpocon = dpocon_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun spocon = spocon_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zpocon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpoequ because the type `lapack_complex_float` is not defined in this library.
+    fun zpocon = zpocon_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cpoequ = cpoequ_(n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
     fun dpoequ = dpoequ_(n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
     fun spoequ = spoequ_(n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
-    # Excluded zpoequ because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpoequb because the type `lapack_complex_float` is not defined in this library.
+    fun zpoequ = zpoequ_(n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
+    fun cpoequb = cpoequb_(n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
     fun dpoequb = dpoequb_(n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
     fun spoequb = spoequb_(n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
-    # Excluded zpoequb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cporfs because the type `lapack_complex_float` is not defined in this library.
+    fun zpoequb = zpoequb_(n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
+    fun cporfs = cporfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dporfs = dporfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sporfs = sporfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zporfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cporfsx because the type `lapack_complex_float` is not defined in this library.
+    fun zporfs = zporfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    # Excluded cporfsx because the type `const float` is not defined in this library.
     # Excluded dporfsx because the type `const double` is not defined in this library.
     # Excluded sporfsx because the type `const float` is not defined in this library.
-    # Excluded zporfsx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cposv because the type `lapack_complex_float` is not defined in this library.
+    # Excluded zporfsx because the type `const double` is not defined in this library.
+    fun cposv = cposv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dposv = dposv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sposv = sposv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zposv because the type `lapack_complex_double` is not defined in this library.
+    fun zposv = zposv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
     fun dsposv = dsposv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, work : LibC::Double*, swork : LibC::Float*, iter : LibC::Int*, info : LibC::Int*)
-    # Excluded zcposv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cposvx because the type `lapack_complex_float` is not defined in this library.
+    fun zcposv = zcposv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, work : ComplexDouble*, swork : ComplexFloat*, rwork : LibC::Double*, iter : LibC::Int*, info : LibC::Int*)
+    fun cposvx = cposvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, equed : LibC::Char*, s : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dposvx = dposvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, equed : LibC::Char*, s : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sposvx = sposvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, equed : LibC::Char*, s : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zposvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cposvxx because the type `lapack_complex_float` is not defined in this library.
+    fun zposvx = zposvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, equed : LibC::Char*, s : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cposvxx = cposvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, equed : LibC::Char*, s : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, rpvgrw : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dposvxx = dposvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, equed : LibC::Char*, s : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, rpvgrw : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sposvxx = sposvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, equed : LibC::Char*, s : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, rpvgrw : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zposvxx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpotf2 because the type `lapack_complex_float` is not defined in this library.
+    fun zposvxx = zposvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, equed : LibC::Char*, s : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, rpvgrw : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cpotf2 = cpotf2_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, info : LibC::Int*)
     fun dpotf2 = dpotf2_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun spotf2 = spotf2_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, info : LibC::Int*)
-    # Excluded zpotf2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpotrf because the type `lapack_complex_float` is not defined in this library.
+    fun zpotf2 = zpotf2_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
+    fun cpotrf = cpotrf_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, info : LibC::Int*)
     fun dpotrf = dpotrf_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun spotrf = spotrf_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, info : LibC::Int*)
-    # Excluded zpotrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpotrf2 because the type `lapack_complex_float` is not defined in this library.
+    fun zpotrf = zpotrf_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
+    fun cpotrf2 = cpotrf2_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, info : LibC::Int*)
     fun dpotrf2 = dpotrf2_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun spotrf2 = spotrf2_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, info : LibC::Int*)
-    # Excluded zpotrf2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpotri because the type `lapack_complex_float` is not defined in this library.
+    fun zpotrf2 = zpotrf2_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
+    fun cpotri = cpotri_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, info : LibC::Int*)
     fun dpotri = dpotri_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun spotri = spotri_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, info : LibC::Int*)
-    # Excluded zpotri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpotrs because the type `lapack_complex_float` is not defined in this library.
+    fun zpotri = zpotri_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
+    fun cpotrs = cpotrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dpotrs = dpotrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun spotrs = spotrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zpotrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cppcon because the type `lapack_complex_float` is not defined in this library.
+    fun zpotrs = zpotrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cppcon = cppcon_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dppcon = dppcon_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sppcon = sppcon_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zppcon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cppequ because the type `lapack_complex_float` is not defined in this library.
+    fun zppcon = zppcon_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cppequ = cppequ_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
     fun dppequ = dppequ_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
     fun sppequ = sppequ_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, info : LibC::Int*)
-    # Excluded zppequ because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpprfs because the type `lapack_complex_float` is not defined in this library.
+    fun zppequ = zppequ_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, info : LibC::Int*)
+    fun cpprfs = cpprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, afp : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dpprfs = dpprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, afp : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun spprfs = spprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, afp : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zpprfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cppsv because the type `lapack_complex_float` is not defined in this library.
+    fun zpprfs = zpprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, afp : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cppsv = cppsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dppsv = dppsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sppsv = sppsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zppsv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cppsvx because the type `lapack_complex_float` is not defined in this library.
+    fun zppsv = zppsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cppsvx = cppsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, afp : ComplexFloat*, equed : LibC::Char*, s : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dppsvx = dppsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, afp : LibC::Double*, equed : LibC::Char*, s : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sppsvx = sppsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, afp : LibC::Float*, equed : LibC::Char*, s : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zppsvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpptrf because the type `lapack_complex_float` is not defined in this library.
+    fun zppsvx = zppsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, afp : ComplexDouble*, equed : LibC::Char*, s : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cpptrf = cpptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, info : LibC::Int*)
     fun dpptrf = dpptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, info : LibC::Int*)
     fun spptrf = spptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, info : LibC::Int*)
-    # Excluded zpptrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpptri because the type `lapack_complex_float` is not defined in this library.
+    fun zpptrf = zpptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, info : LibC::Int*)
+    fun cpptri = cpptri_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, info : LibC::Int*)
     fun dpptri = dpptri_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, info : LibC::Int*)
     fun spptri = spptri_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, info : LibC::Int*)
-    # Excluded zpptri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpptrs because the type `lapack_complex_float` is not defined in this library.
+    fun zpptri = zpptri_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, info : LibC::Int*)
+    fun cpptrs = cpptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dpptrs = dpptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun spptrs = spptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zpptrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpstrf because the type `lapack_complex_float` is not defined in this library.
+    fun zpptrs = zpptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cpstrf = cpstrf_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, piv : LibC::Int*, rank : LibC::Int*, tol : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
     fun dpstrf = dpstrf_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, piv : LibC::Int*, rank : LibC::Int*, tol : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun spstrf = spstrf_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, piv : LibC::Int*, rank : LibC::Int*, tol : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zpstrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cptcon because the type `lapack_complex_float` is not defined in this library.
+    fun zpstrf = zpstrf_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, piv : LibC::Int*, rank : LibC::Int*, tol : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
+    fun cptcon = cptcon_(n : LibC::Int*, d : LibC::Float*, e : ComplexFloat*, anorm : LibC::Float*, rcond : LibC::Float*, rwork : LibC::Float*, info : LibC::Int*)
     fun dptcon = dptcon_(n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun sptcon = sptcon_(n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zptcon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpteqr because the type `lapack_complex_float` is not defined in this library.
+    fun zptcon = zptcon_(n : LibC::Int*, d : LibC::Double*, e : ComplexDouble*, anorm : LibC::Double*, rcond : LibC::Double*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cpteqr = cpteqr_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
     fun dpteqr = dpteqr_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun spteqr = spteqr_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zpteqr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cptrfs because the type `lapack_complex_float` is not defined in this library.
+    fun zpteqr = zpteqr_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
+    fun cptrfs = cptrfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Float*, e : ComplexFloat*, df : LibC::Float*, ef : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dptrfs = dptrfs_(n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Double*, e : LibC::Double*, df : LibC::Double*, ef : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun sptrfs = sptrfs_(n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Float*, e : LibC::Float*, df : LibC::Float*, ef : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zptrfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cptsv because the type `lapack_complex_float` is not defined in this library.
+    fun zptrfs = zptrfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Double*, e : ComplexDouble*, df : LibC::Double*, ef : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cptsv = cptsv_(n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Float*, e : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dptsv = dptsv_(n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Double*, e : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sptsv = sptsv_(n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Float*, e : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zptsv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cptsvx because the type `lapack_complex_float` is not defined in this library.
+    fun zptsv = zptsv_(n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Double*, e : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cptsvx = cptsvx_(fact : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Float*, e : ComplexFloat*, df : LibC::Float*, ef : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dptsvx = dptsvx_(fact : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Double*, e : LibC::Double*, df : LibC::Double*, ef : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun sptsvx = sptsvx_(fact : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Float*, e : LibC::Float*, df : LibC::Float*, ef : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zptsvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpttrf because the type `lapack_complex_float` is not defined in this library.
+    fun zptsvx = zptsvx_(fact : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Double*, e : ComplexDouble*, df : LibC::Double*, ef : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cpttrf = cpttrf_(n : LibC::Int*, d : LibC::Float*, e : ComplexFloat*, info : LibC::Int*)
     fun dpttrf = dpttrf_(n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, info : LibC::Int*)
     fun spttrf = spttrf_(n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, info : LibC::Int*)
-    # Excluded zpttrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cpttrs because the type `lapack_complex_float` is not defined in this library.
+    fun zpttrf = zpttrf_(n : LibC::Int*, d : LibC::Double*, e : ComplexDouble*, info : LibC::Int*)
+    fun cpttrs = cpttrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Float*, e : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dpttrs = dpttrs_(n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Double*, e : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun spttrs = spttrs_(n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Float*, e : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zpttrs because the type `lapack_complex_double` is not defined in this library.
+    fun zpttrs = zpttrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, d : LibC::Double*, e : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
     fun dsbev = dsbev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, w : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun ssbev = ssbev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, w : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
     fun dsbev_2stage = dsbev_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, w : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
@@ -894,10 +894,10 @@ module OpenBLAS
     fun ssbtrd = ssbtrd_(vect : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, d : LibC::Float*, e : LibC::Float*, q : LibC::Float*, ldq : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
     fun dsfrk = dsfrk_(transr : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, k : LibC::Int*, alpha : LibC::Double*, a : LibC::Double*, lda : LibC::Int*, beta : LibC::Double*, c : LibC::Double*)
     fun ssfrk = ssfrk_(transr : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, n : LibC::Int*, k : LibC::Int*, alpha : LibC::Float*, a : LibC::Float*, lda : LibC::Int*, beta : LibC::Float*, c : LibC::Float*)
-    # Excluded cspcon because the type `lapack_complex_float` is not defined in this library.
+    fun cspcon = cspcon_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, info : LibC::Int*)
     fun dspcon = dspcon_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sspcon = sspcon_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zspcon because the type `lapack_complex_double` is not defined in this library.
+    fun zspcon = zspcon_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, info : LibC::Int*)
     fun dspev = dspev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, w : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun sspev = sspev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, w : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
     fun dspevd = dspevd_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, w : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
@@ -912,54 +912,54 @@ module OpenBLAS
     fun sspgvd = sspgvd_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, bp : LibC::Float*, w : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
     fun dspgvx = dspgvx_(itype : LibC::Int*, jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, bp : LibC::Double*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
     fun sspgvx = sspgvx_(itype : LibC::Int*, jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, bp : LibC::Float*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
-    # Excluded csprfs because the type `lapack_complex_float` is not defined in this library.
+    fun csprfs = csprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, afp : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dsprfs = dsprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, afp : LibC::Double*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun ssprfs = ssprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, afp : LibC::Float*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsprfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cspsv because the type `lapack_complex_float` is not defined in this library.
+    fun zsprfs = zsprfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, afp : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun cspsv = cspsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dspsv = dspsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun sspsv = sspsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zspsv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cspsvx because the type `lapack_complex_float` is not defined in this library.
+    fun zspsv = zspsv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun cspsvx = cspsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, afp : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dspsvx = dspsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, afp : LibC::Double*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sspsvx = sspsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, afp : LibC::Float*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zspsvx because the type `lapack_complex_double` is not defined in this library.
+    fun zspsvx = zspsvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, afp : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
     fun dsptrd = dsptrd_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, d : LibC::Double*, e : LibC::Double*, tau : LibC::Double*, info : LibC::Int*)
     fun ssptrd = ssptrd_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, d : LibC::Float*, e : LibC::Float*, tau : LibC::Float*, info : LibC::Int*)
-    # Excluded csptrf because the type `lapack_complex_float` is not defined in this library.
+    fun csptrf = csptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, info : LibC::Int*)
     fun dsptrf = dsptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, ipiv : LibC::Int*, info : LibC::Int*)
     fun ssptrf = ssptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, ipiv : LibC::Int*, info : LibC::Int*)
-    # Excluded zsptrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csptri because the type `lapack_complex_float` is not defined in this library.
+    fun zsptrf = zsptrf_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, info : LibC::Int*)
+    fun csptri = csptri_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dsptri = dsptri_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, ipiv : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun ssptri = ssptri_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, ipiv : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zsptri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csptrs because the type `lapack_complex_float` is not defined in this library.
+    fun zsptri = zsptri_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun csptrs = csptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dsptrs = dsptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun ssptrs = ssptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zsptrs because the type `lapack_complex_double` is not defined in this library.
+    fun zsptrs = zsptrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
     fun dstebz = dstebz_(range : LibC::Char*, order : LibC::Char*, n : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, d : LibC::Double*, e : LibC::Double*, m : LibC::Int*, nsplit : LibC::Int*, w : LibC::Double*, iblock : LibC::Int*, isplit : LibC::Int*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun sstebz = sstebz_(range : LibC::Char*, order : LibC::Char*, n : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, d : LibC::Float*, e : LibC::Float*, m : LibC::Int*, nsplit : LibC::Int*, w : LibC::Float*, iblock : LibC::Int*, isplit : LibC::Int*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded cstedc because the type `lapack_complex_float` is not defined in this library.
+    fun cstedc = cstedc_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
     fun dstedc = dstedc_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
     fun sstedc = sstedc_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zstedc because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cstegr because the type `lapack_complex_float` is not defined in this library.
+    fun zstedc = zstedc_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun cstegr = cstegr_(jobz : LibC::Char*, range : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, isuppz : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
     fun dstegr = dstegr_(jobz : LibC::Char*, range : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, isuppz : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
     fun sstegr = sstegr_(jobz : LibC::Char*, range : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, isuppz : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zstegr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cstein because the type `lapack_complex_float` is not defined in this library.
+    fun zstegr = zstegr_(jobz : LibC::Char*, range : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, isuppz : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
+    fun cstein = cstein_(n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, m : LibC::Int*, w : LibC::Float*, iblock : LibC::Int*, isplit : LibC::Int*, z : ComplexFloat*, ldz : LibC::Int*, work : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
     fun dstein = dstein_(n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, m : LibC::Int*, w : LibC::Double*, iblock : LibC::Int*, isplit : LibC::Int*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
     fun sstein = sstein_(n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, m : LibC::Int*, w : LibC::Float*, iblock : LibC::Int*, isplit : LibC::Int*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
-    # Excluded zstein because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cstemr because the type `lapack_complex_float` is not defined in this library.
+    fun zstein = zstein_(n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, m : LibC::Int*, w : LibC::Double*, iblock : LibC::Int*, isplit : LibC::Int*, z : ComplexDouble*, ldz : LibC::Int*, work : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
+    # Excluded cstemr because the type `lapack_logical` is not defined in this library.
     # Excluded dstemr because the type `lapack_logical` is not defined in this library.
     # Excluded sstemr because the type `lapack_logical` is not defined in this library.
-    # Excluded zstemr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csteqr because the type `lapack_complex_float` is not defined in this library.
+    # Excluded zstemr because the type `lapack_logical` is not defined in this library.
+    fun csteqr = csteqr_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, z : ComplexFloat*, ldz : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
     fun dsteqr = dsteqr_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun ssteqr = ssteqr_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zsteqr because the type `lapack_complex_double` is not defined in this library.
+    fun zsteqr = zsteqr_(compz : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, z : ComplexDouble*, ldz : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun dsterf = dsterf_(n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, info : LibC::Int*)
     fun ssterf = ssterf_(n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, info : LibC::Int*)
     fun dstev = dstev_(jobz : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
@@ -970,22 +970,22 @@ module OpenBLAS
     fun sstevr = sstevr_(jobz : LibC::Char*, range : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, isuppz : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
     fun dstevx = dstevx_(jobz : LibC::Char*, range : LibC::Char*, n : LibC::Int*, d : LibC::Double*, e : LibC::Double*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
     fun sstevx = sstevx_(jobz : LibC::Char*, range : LibC::Char*, n : LibC::Int*, d : LibC::Float*, e : LibC::Float*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
-    # Excluded csycon because the type `lapack_complex_float` is not defined in this library.
+    fun csycon = csycon_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, info : LibC::Int*)
     fun dsycon = dsycon_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun ssycon = ssycon_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsycon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csycon_3 because the type `lapack_complex_float` is not defined in this library.
+    fun zsycon = zsycon_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, info : LibC::Int*)
+    fun csycon_3 = csycon_3_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : ComplexFloat*, info : LibC::Int*)
     fun dsycon_3 = dsycon_3_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, e : LibC::Double*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun ssycon_3 = ssycon_3_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, e : LibC::Float*, ipiv : LibC::Int*, anorm : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsycon_3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csyconv because the type `lapack_complex_float` is not defined in this library.
+    fun zsycon_3 = zsycon_3_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, anorm : LibC::Double*, rcond : LibC::Double*, work : ComplexDouble*, info : LibC::Int*)
+    fun csyconv = csyconv_(uplo : LibC::Char*, way : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, e : ComplexFloat*, info : LibC::Int*)
     fun dsyconv = dsyconv_(uplo : LibC::Char*, way : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, e : LibC::Double*, info : LibC::Int*)
     fun ssyconv = ssyconv_(uplo : LibC::Char*, way : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, e : LibC::Float*, info : LibC::Int*)
-    # Excluded zsyconv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csyequb because the type `lapack_complex_float` is not defined in this library.
+    fun zsyconv = zsyconv_(uplo : LibC::Char*, way : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, e : ComplexDouble*, info : LibC::Int*)
+    fun csyequb = csyequb_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, work : ComplexFloat*, info : LibC::Int*)
     fun dsyequb = dsyequb_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, work : LibC::Double*, info : LibC::Int*)
     fun ssyequb = ssyequb_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, s : LibC::Float*, scond : LibC::Float*, amax : LibC::Float*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zsyequb because the type `lapack_complex_double` is not defined in this library.
+    fun zsyequb = zsyequb_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, s : LibC::Double*, scond : LibC::Double*, amax : LibC::Double*, work : ComplexDouble*, info : LibC::Int*)
     fun dsyev = dsyev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, w : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssyev = ssyev_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, w : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsyev_2stage = dsyev_2stage_(jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, w : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
@@ -1012,140 +1012,140 @@ module OpenBLAS
     fun ssygvd = ssygvd_(itype : LibC::Int*, jobz : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, w : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, liwork : LibC::Int*, info : LibC::Int*)
     fun dsygvx = dsygvx_(itype : LibC::Int*, jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, vl : LibC::Double*, vu : LibC::Double*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Double*, m : LibC::Int*, w : LibC::Double*, z : LibC::Double*, ldz : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
     fun ssygvx = ssygvx_(itype : LibC::Int*, jobz : LibC::Char*, range : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, vl : LibC::Float*, vu : LibC::Float*, il : LibC::Int*, iu : LibC::Int*, abstol : LibC::Float*, m : LibC::Int*, w : LibC::Float*, z : LibC::Float*, ldz : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, ifail : LibC::Int*, info : LibC::Int*)
-    # Excluded csyr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zsyr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csyrfs because the type `lapack_complex_float` is not defined in this library.
+    fun csyr = csyr_(uplo : LibC::Char*, n : LibC::Int*, alpha : ComplexFloat*, x : ComplexFloat*, incx : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*)
+    fun zsyr = zsyr_(uplo : LibC::Char*, n : LibC::Int*, alpha : ComplexDouble*, x : ComplexDouble*, incx : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*)
+    fun csyrfs = csyrfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dsyrfs = dsyrfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun ssyrfs = ssyrfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsyrfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csyrfsx because the type `lapack_complex_float` is not defined in this library.
+    fun zsyrfs = zsyrfs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    # Excluded csyrfsx because the type `const float` is not defined in this library.
     # Excluded dsyrfsx because the type `const double` is not defined in this library.
     # Excluded ssyrfsx because the type `const float` is not defined in this library.
-    # Excluded zsyrfsx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csysv because the type `lapack_complex_float` is not defined in this library.
+    # Excluded zsyrfsx because the type `const double` is not defined in this library.
+    fun csysv = csysv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsysv = dsysv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssysv = ssysv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsysv because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csysv_aa because the type `lapack_complex_float` is not defined in this library.
+    fun zsysv = zsysv_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csysv_aa = csysv_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsysv_aa = dsysv_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssysv_aa = ssysv_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsysv_aa because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csysv_aa_2stage because the type `lapack_complex_float` is not defined in this library.
+    fun zsysv_aa = zsysv_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csysv_aa_2stage = csysv_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tb : ComplexFloat*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsysv_aa_2stage = dsysv_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tb : LibC::Double*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssysv_aa_2stage = ssysv_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tb : LibC::Float*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsysv_aa_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csysv_rk because the type `lapack_complex_float` is not defined in this library.
+    fun zsysv_aa_2stage = zsysv_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tb : ComplexDouble*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csysv_rk = csysv_rk_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsysv_rk = dsysv_rk_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, e : LibC::Double*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssysv_rk = ssysv_rk_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, e : LibC::Float*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsysv_rk because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csysv_rook because the type `lapack_complex_float` is not defined in this library.
+    fun zsysv_rk = zsysv_rk_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csysv_rook = csysv_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsysv_rook = dsysv_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssysv_rook = ssysv_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsysv_rook because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csysvx because the type `lapack_complex_float` is not defined in this library.
+    fun zsysv_rook = zsysv_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csysvx = csysvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, info : LibC::Int*)
     fun dsysvx = dsysvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun ssysvx = ssysvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsysvx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csysvxx because the type `lapack_complex_float` is not defined in this library.
+    fun zsysvx = zsysvx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, info : LibC::Int*)
+    fun csysvxx = csysvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, af : ComplexFloat*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, s : LibC::Float*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, rcond : LibC::Float*, rpvgrw : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dsysvxx = dsysvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, af : LibC::Double*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, s : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, rcond : LibC::Double*, rpvgrw : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun ssysvxx = ssysvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, af : LibC::Float*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, s : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, rcond : LibC::Float*, rpvgrw : LibC::Float*, berr : LibC::Float*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Float*, err_bnds_comp : LibC::Float*, nparams : LibC::Int*, params : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsysvxx because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csyswapr because the type `lapack_complex_float` is not defined in this library.
+    fun zsysvxx = zsysvxx_(fact : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, af : ComplexDouble*, ldaf : LibC::Int*, ipiv : LibC::Int*, equed : LibC::Char*, s : LibC::Double*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, rcond : LibC::Double*, rpvgrw : LibC::Double*, berr : LibC::Double*, n_err_bnds : LibC::Int*, err_bnds_norm : LibC::Double*, err_bnds_comp : LibC::Double*, nparams : LibC::Int*, params : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun csyswapr = csyswapr_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, i1 : LibC::Int*, i2 : LibC::Int*)
     fun dsyswapr = dsyswapr_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, i1 : LibC::Int*, i2 : LibC::Int*)
     fun ssyswapr = ssyswapr_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, i1 : LibC::Int*, i2 : LibC::Int*)
-    # Excluded zsyswapr because the type `lapack_complex_double` is not defined in this library.
+    fun zsyswapr = zsyswapr_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, i1 : LibC::Int*, i2 : LibC::Int*)
     fun dsytrd = dsytrd_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, d : LibC::Double*, e : LibC::Double*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytrd = ssytrd_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, d : LibC::Float*, e : LibC::Float*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsytrd_2stage = dsytrd_2stage_(vect : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, d : LibC::Double*, e : LibC::Double*, tau : LibC::Double*, hous2 : LibC::Double*, lhous2 : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytrd_2stage = ssytrd_2stage_(vect : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, d : LibC::Float*, e : LibC::Float*, tau : LibC::Float*, hous2 : LibC::Float*, lhous2 : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded csytrf because the type `lapack_complex_float` is not defined in this library.
+    fun csytrf = csytrf_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsytrf = dsytrf_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytrf = ssytrf_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytrf_aa because the type `lapack_complex_float` is not defined in this library.
+    fun zsytrf = zsytrf_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csytrf_aa = csytrf_aa_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsytrf_aa = dsytrf_aa_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytrf_aa = ssytrf_aa_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrf_aa because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytrf_aa_2stage because the type `lapack_complex_float` is not defined in this library.
+    fun zsytrf_aa = zsytrf_aa_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csytrf_aa_2stage = csytrf_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tb : ComplexFloat*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsytrf_aa_2stage = dsytrf_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tb : LibC::Double*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytrf_aa_2stage = ssytrf_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tb : LibC::Float*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrf_aa_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytrf_rk because the type `lapack_complex_float` is not defined in this library.
+    fun zsytrf_aa_2stage = zsytrf_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tb : ComplexDouble*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csytrf_rk = csytrf_rk_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsytrf_rk = dsytrf_rk_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, e : LibC::Double*, ipiv : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytrf_rk = ssytrf_rk_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, e : LibC::Float*, ipiv : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrf_rk because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytrf_rook because the type `lapack_complex_float` is not defined in this library.
+    fun zsytrf_rk = zsytrf_rk_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csytrf_rook = csytrf_rook_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsytrf_rook = dsytrf_rook_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytrf_rook = ssytrf_rook_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrf_rook because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytri because the type `lapack_complex_float` is not defined in this library.
+    fun zsytrf_rook = zsytrf_rook_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csytri = csytri_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dsytri = dsytri_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun ssytri = ssytri_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded zsytri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytri2 because the type `lapack_complex_float` is not defined in this library.
+    fun zsytri = zsytri_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun csytri2 = csytri2_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsytri2 = dsytri2_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytri2 = ssytri2_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytri2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytri2x because the type `lapack_complex_float` is not defined in this library.
+    fun zsytri2 = zsytri2_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csytri2x = csytri2x_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexFloat*, nb : LibC::Int*, info : LibC::Int*)
     fun dsytri2x = dsytri2x_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Double*, nb : LibC::Int*, info : LibC::Int*)
     fun ssytri2x = ssytri2x_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, work : LibC::Float*, nb : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytri2x because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytri_3 because the type `lapack_complex_float` is not defined in this library.
+    fun zsytri2x = zsytri2x_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, work : ComplexDouble*, nb : LibC::Int*, info : LibC::Int*)
+    fun csytri_3 = csytri_3_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsytri_3 = dsytri_3_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, e : LibC::Double*, ipiv : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytri_3 = ssytri_3_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, e : LibC::Float*, ipiv : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytri_3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytrs because the type `lapack_complex_float` is not defined in this library.
+    fun zsytri_3 = zsytri_3_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csytrs = csytrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dsytrs = dsytrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun ssytrs = ssytrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrs because the type `lapack_complex_double` is not defined in this library.
+    fun zsytrs = zsytrs_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
     # Excluded csytrs2 because the type `const lapack_complex_float` is not defined in this library.
     # Excluded dsytrs2 because the type `const double` is not defined in this library.
     # Excluded ssytrs2 because the type `const float` is not defined in this library.
     # Excluded zsytrs2 because the type `const lapack_complex_double` is not defined in this library.
-    # Excluded csytrs_3 because the type `lapack_complex_float` is not defined in this library.
+    fun csytrs_3 = csytrs_3_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, e : ComplexFloat*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dsytrs_3 = dsytrs_3_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, e : LibC::Double*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun ssytrs_3 = ssytrs_3_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, e : LibC::Float*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrs_3 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytrs_aa because the type `lapack_complex_float` is not defined in this library.
+    fun zsytrs_3 = zsytrs_3_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, e : ComplexDouble*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun csytrs_aa = csytrs_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dsytrs_aa = dsytrs_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun ssytrs_aa = ssytrs_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrs_aa because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytrs_aa_2stage because the type `lapack_complex_float` is not defined in this library.
+    fun zsytrs_aa = zsytrs_aa_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun csytrs_aa_2stage = csytrs_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tb : ComplexFloat*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dsytrs_aa_2stage = dsytrs_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tb : LibC::Double*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun ssytrs_aa_2stage = ssytrs_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tb : LibC::Float*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrs_aa_2stage because the type `lapack_complex_double` is not defined in this library.
-    # Excluded csytrs_rook because the type `lapack_complex_float` is not defined in this library.
+    fun zsytrs_aa_2stage = zsytrs_aa_2stage_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tb : ComplexDouble*, ltb : LibC::Int*, ipiv : LibC::Int*, ipiv2 : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun csytrs_rook = csytrs_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dsytrs_rook = dsytrs_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun ssytrs_rook = ssytrs_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ipiv : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded zsytrs_rook because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctbcon because the type `lapack_complex_float` is not defined in this library.
+    fun zsytrs_rook = zsytrs_rook_(uplo : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ipiv : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun ctbcon = ctbcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, rcond : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dtbcon = dtbcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun stbcon = stbcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded ztbcon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctbrfs because the type `lapack_complex_float` is not defined in this library.
+    fun ztbcon = ztbcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, rcond : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun ctbrfs = ctbrfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dtbrfs = dtbrfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun stbrfs = stbrfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded ztbrfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctbtrs because the type `lapack_complex_float` is not defined in this library.
+    fun ztbrfs = ztbrfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun ctbtrs = ctbtrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexFloat*, ldab : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dtbtrs = dtbtrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Double*, ldab : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun stbtrs = stbtrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : LibC::Float*, ldab : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded ztbtrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctfsm because the type `lapack_complex_float` is not defined in this library.
+    fun ztbtrs = ztbtrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, kd : LibC::Int*, nrhs : LibC::Int*, ab : ComplexDouble*, ldab : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun ctfsm = ctfsm_(transr : LibC::Char*, side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, m : LibC::Int*, n : LibC::Int*, alpha : ComplexFloat*, a : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*)
     fun dtfsm = dtfsm_(transr : LibC::Char*, side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, m : LibC::Int*, n : LibC::Int*, alpha : LibC::Double*, a : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*)
     fun stfsm = stfsm_(transr : LibC::Char*, side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, m : LibC::Int*, n : LibC::Int*, alpha : LibC::Float*, a : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*)
-    # Excluded ztfsm because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctftri because the type `lapack_complex_float` is not defined in this library.
+    fun ztfsm = ztfsm_(transr : LibC::Char*, side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, m : LibC::Int*, n : LibC::Int*, alpha : ComplexDouble*, a : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*)
+    fun ctftri = ctftri_(transr : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, info : LibC::Int*)
     fun dtftri = dtftri_(transr : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : LibC::Double*, info : LibC::Int*)
     fun stftri = stftri_(transr : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : LibC::Float*, info : LibC::Int*)
-    # Excluded ztftri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctfttp because the type `lapack_complex_float` is not defined in this library.
+    fun ztftri = ztftri_(transr : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, info : LibC::Int*)
+    fun ctfttp = ctfttp_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, arf : ComplexFloat*, ap : ComplexFloat*, info : LibC::Int*)
     fun dtfttp = dtfttp_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, arf : LibC::Double*, ap : LibC::Double*, info : LibC::Int*)
     fun stfttp = stfttp_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, arf : LibC::Float*, ap : LibC::Float*, info : LibC::Int*)
-    # Excluded ztfttp because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctfttr because the type `lapack_complex_float` is not defined in this library.
+    fun ztfttp = ztfttp_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, arf : ComplexDouble*, ap : ComplexDouble*, info : LibC::Int*)
+    fun ctfttr = ctfttr_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, arf : ComplexFloat*, a : ComplexFloat*, lda : LibC::Int*, info : LibC::Int*)
     fun dtfttr = dtfttr_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, arf : LibC::Double*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun stfttr = stfttr_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, arf : LibC::Float*, a : LibC::Float*, lda : LibC::Int*, info : LibC::Int*)
-    # Excluded ztfttr because the type `lapack_complex_double` is not defined in this library.
+    fun ztfttr = ztfttr_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, arf : ComplexDouble*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
     # Excluded ctgevc because the type `lapack_logical` is not defined in this library.
     # Excluded dtgevc because the type `lapack_logical` is not defined in this library.
     # Excluded stgevc because the type `lapack_logical` is not defined in this library.
@@ -1158,74 +1158,74 @@ module OpenBLAS
     # Excluded dtgsen because the type `lapack_logical` is not defined in this library.
     # Excluded stgsen because the type `lapack_logical` is not defined in this library.
     # Excluded ztgsen because the type `lapack_logical` is not defined in this library.
-    # Excluded ctgsja because the type `lapack_complex_float` is not defined in this library.
+    fun ctgsja = ctgsja_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, tola : LibC::Float*, tolb : LibC::Float*, alpha : LibC::Float*, beta : LibC::Float*, u : ComplexFloat*, ldu : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, work : ComplexFloat*, ncycle : LibC::Int*, info : LibC::Int*)
     fun dtgsja = dtgsja_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, tola : LibC::Double*, tolb : LibC::Double*, alpha : LibC::Double*, beta : LibC::Double*, u : LibC::Double*, ldu : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, q : LibC::Double*, ldq : LibC::Int*, work : LibC::Double*, ncycle : LibC::Int*, info : LibC::Int*)
     fun stgsja = stgsja_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, tola : LibC::Float*, tolb : LibC::Float*, alpha : LibC::Float*, beta : LibC::Float*, u : LibC::Float*, ldu : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, q : LibC::Float*, ldq : LibC::Int*, work : LibC::Float*, ncycle : LibC::Int*, info : LibC::Int*)
-    # Excluded ztgsja because the type `lapack_complex_double` is not defined in this library.
+    fun ztgsja = ztgsja_(jobu : LibC::Char*, jobv : LibC::Char*, jobq : LibC::Char*, m : LibC::Int*, p : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, tola : LibC::Double*, tolb : LibC::Double*, alpha : LibC::Double*, beta : LibC::Double*, u : ComplexDouble*, ldu : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, work : ComplexDouble*, ncycle : LibC::Int*, info : LibC::Int*)
     # Excluded ctgsna because the type `lapack_logical` is not defined in this library.
     # Excluded dtgsna because the type `lapack_logical` is not defined in this library.
     # Excluded stgsna because the type `lapack_logical` is not defined in this library.
     # Excluded ztgsna because the type `lapack_logical` is not defined in this library.
-    # Excluded ctgsyl because the type `lapack_complex_float` is not defined in this library.
+    fun ctgsyl = ctgsyl_(trans : LibC::Char*, ijob : LibC::Int*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, d : ComplexFloat*, ldd : LibC::Int*, e : ComplexFloat*, lde : LibC::Int*, f : ComplexFloat*, ldf : LibC::Int*, dif : LibC::Float*, scale : LibC::Float*, work : ComplexFloat*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun dtgsyl = dtgsyl_(trans : LibC::Char*, ijob : LibC::Int*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, c : LibC::Double*, ldc : LibC::Int*, d : LibC::Double*, ldd : LibC::Int*, e : LibC::Double*, lde : LibC::Int*, f : LibC::Double*, ldf : LibC::Int*, dif : LibC::Double*, scale : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
     fun stgsyl = stgsyl_(trans : LibC::Char*, ijob : LibC::Int*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, c : LibC::Float*, ldc : LibC::Int*, d : LibC::Float*, ldd : LibC::Int*, e : LibC::Float*, lde : LibC::Int*, f : LibC::Float*, ldf : LibC::Int*, dif : LibC::Float*, scale : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded ztgsyl because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctpcon because the type `lapack_complex_float` is not defined in this library.
+    fun ztgsyl = ztgsyl_(trans : LibC::Char*, ijob : LibC::Int*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, d : ComplexDouble*, ldd : LibC::Int*, e : ComplexDouble*, lde : LibC::Int*, f : ComplexDouble*, ldf : LibC::Int*, dif : LibC::Double*, scale : LibC::Double*, work : ComplexDouble*, lwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
+    fun ctpcon = ctpcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, rcond : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dtpcon = dtpcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun stpcon = stpcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded ztpcon because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctplqt because the type `lapack_complex_float` is not defined in this library.
+    fun ztpcon = ztpcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, rcond : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun ctplqt = ctplqt_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, mb : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dtplqt = dtplqt_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, mb : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun stplqt = stplqt_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, mb : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded ztplqt because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctplqt2 because the type `lapack_complex_float` is not defined in this library.
+    fun ztplqt = ztplqt_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, mb : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun ctplqt2 = ctplqt2_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, info : LibC::Int*)
     fun dtplqt2 = dtplqt2_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, info : LibC::Int*)
     fun stplqt2 = stplqt2_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, info : LibC::Int*)
-    # Excluded ztplqt2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctpmlqt because the type `lapack_complex_float` is not defined in this library.
+    fun ztplqt2 = ztplqt2_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, info : LibC::Int*)
+    fun ctpmlqt = ctpmlqt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, mb : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dtpmlqt = dtpmlqt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, mb : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun stpmlqt = stpmlqt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, mb : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded ztpmlqt because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctpmqrt because the type `lapack_complex_float` is not defined in this library.
+    fun ztpmlqt = ztpmlqt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, mb : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun ctpmqrt = ctpmqrt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, nb : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dtpmqrt = dtpmqrt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, nb : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun stpmqrt = stpmqrt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, nb : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded ztpmqrt because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctpqrt because the type `lapack_complex_float` is not defined in this library.
+    fun ztpmqrt = ztpmqrt_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, nb : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun ctpqrt = ctpqrt_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, nb : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
     fun dtpqrt = dtpqrt_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, nb : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun stpqrt = stpqrt_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, nb : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded ztpqrt because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctpqrt2 because the type `lapack_complex_float` is not defined in this library.
+    fun ztpqrt = ztpqrt_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, nb : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun ctpqrt2 = ctpqrt2_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, info : LibC::Int*)
     fun dtpqrt2 = dtpqrt2_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, info : LibC::Int*)
     fun stpqrt2 = stpqrt2_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, info : LibC::Int*)
-    # Excluded ztpqrt2 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctprfb because the type `lapack_complex_float` is not defined in this library.
+    fun ztpqrt2 = ztpqrt2_(m : LibC::Int*, n : LibC::Int*, l : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, info : LibC::Int*)
+    fun ctprfb = ctprfb_(side : LibC::Char*, trans : LibC::Char*, direct : LibC::Char*, storev : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, v : ComplexFloat*, ldv : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, work : ComplexFloat*, ldwork : LibC::Int*)
     fun dtprfb = dtprfb_(side : LibC::Char*, trans : LibC::Char*, direct : LibC::Char*, storev : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, v : LibC::Double*, ldv : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, work : LibC::Double*, ldwork : LibC::Int*)
     fun stprfb = stprfb_(side : LibC::Char*, trans : LibC::Char*, direct : LibC::Char*, storev : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, v : LibC::Float*, ldv : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, work : LibC::Float*, ldwork : LibC::Int*)
-    # Excluded ztprfb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctprfs because the type `lapack_complex_float` is not defined in this library.
+    fun ztprfb = ztprfb_(side : LibC::Char*, trans : LibC::Char*, direct : LibC::Char*, storev : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, v : ComplexDouble*, ldv : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, work : ComplexDouble*, ldwork : LibC::Int*)
+    fun ctprfs = ctprfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dtprfs = dtprfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun stprfs = stprfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded ztprfs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctptri because the type `lapack_complex_float` is not defined in this library.
+    fun ztprfs = ztprfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
+    fun ctptri = ctptri_(uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, info : LibC::Int*)
     fun dtptri = dtptri_(uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, info : LibC::Int*)
     fun stptri = stptri_(uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, info : LibC::Int*)
-    # Excluded ztptri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctptrs because the type `lapack_complex_float` is not defined in this library.
+    fun ztptri = ztptri_(uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, info : LibC::Int*)
+    fun ctptrs = ctptrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexFloat*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dtptrs = dtptrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Double*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun stptrs = stptrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : LibC::Float*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded ztptrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctpttf because the type `lapack_complex_float` is not defined in this library.
+    fun ztptrs = ztptrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, ap : ComplexDouble*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun ctpttf = ctpttf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, arf : ComplexFloat*, info : LibC::Int*)
     fun dtpttf = dtpttf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, arf : LibC::Double*, info : LibC::Int*)
     fun stpttf = stpttf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, arf : LibC::Float*, info : LibC::Int*)
-    # Excluded ztpttf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctpttr because the type `lapack_complex_float` is not defined in this library.
+    fun ztpttf = ztpttf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, arf : ComplexDouble*, info : LibC::Int*)
+    fun ctpttr = ctpttr_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, a : ComplexFloat*, lda : LibC::Int*, info : LibC::Int*)
     fun dtpttr = dtpttr_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Double*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun stpttr = stpttr_(uplo : LibC::Char*, n : LibC::Int*, ap : LibC::Float*, a : LibC::Float*, lda : LibC::Int*, info : LibC::Int*)
-    # Excluded ztpttr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctrcon because the type `lapack_complex_float` is not defined in this library.
+    fun ztpttr = ztpttr_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
+    fun ctrcon = ctrcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, rcond : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dtrcon = dtrcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, rcond : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun strcon = strcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, rcond : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded ztrcon because the type `lapack_complex_double` is not defined in this library.
+    fun ztrcon = ztrcon_(norm : LibC::Char*, uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, rcond : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
     # Excluded ctrevc because the type `lapack_logical` is not defined in this library.
     # Excluded dtrevc because the type `lapack_logical` is not defined in this library.
     # Excluded strevc because the type `lapack_logical` is not defined in this library.
@@ -1234,14 +1234,14 @@ module OpenBLAS
     # Excluded dtrevc3 because the type `lapack_logical` is not defined in this library.
     # Excluded strevc3 because the type `lapack_logical` is not defined in this library.
     # Excluded ztrevc3 because the type `lapack_logical` is not defined in this library.
-    # Excluded ctrexc because the type `lapack_complex_float` is not defined in this library.
+    fun ctrexc = ctrexc_(compq : LibC::Char*, n : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, q : ComplexFloat*, ldq : LibC::Int*, ifst : LibC::Int*, ilst : LibC::Int*, info : LibC::Int*)
     fun dtrexc = dtrexc_(compq : LibC::Char*, n : LibC::Int*, t : LibC::Double*, ldt : LibC::Int*, q : LibC::Double*, ldq : LibC::Int*, ifst : LibC::Int*, ilst : LibC::Int*, work : LibC::Double*, info : LibC::Int*)
     fun strexc = strexc_(compq : LibC::Char*, n : LibC::Int*, t : LibC::Float*, ldt : LibC::Int*, q : LibC::Float*, ldq : LibC::Int*, ifst : LibC::Int*, ilst : LibC::Int*, work : LibC::Float*, info : LibC::Int*)
-    # Excluded ztrexc because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctrrfs because the type `lapack_complex_float` is not defined in this library.
+    fun ztrexc = ztrexc_(compq : LibC::Char*, n : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, q : ComplexDouble*, ldq : LibC::Int*, ifst : LibC::Int*, ilst : LibC::Int*, info : LibC::Int*)
+    fun ctrrfs = ctrrfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, x : ComplexFloat*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : ComplexFloat*, rwork : LibC::Float*, info : LibC::Int*)
     fun dtrrfs = dtrrfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, x : LibC::Double*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : LibC::Double*, iwork : LibC::Int*, info : LibC::Int*)
     fun strrfs = strrfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, x : LibC::Float*, ldx : LibC::Int*, ferr : LibC::Float*, berr : LibC::Float*, work : LibC::Float*, iwork : LibC::Int*, info : LibC::Int*)
-    # Excluded ztrrfs because the type `lapack_complex_double` is not defined in this library.
+    fun ztrrfs = ztrrfs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, x : ComplexDouble*, ldx : LibC::Int*, ferr : LibC::Double*, berr : LibC::Double*, work : ComplexDouble*, rwork : LibC::Double*, info : LibC::Int*)
     # Excluded ctrsen because the type `lapack_logical` is not defined in this library.
     # Excluded dtrsen because the type `lapack_logical` is not defined in this library.
     # Excluded strsen because the type `lapack_logical` is not defined in this library.
@@ -1250,71 +1250,71 @@ module OpenBLAS
     # Excluded dtrsna because the type `lapack_logical` is not defined in this library.
     # Excluded strsna because the type `lapack_logical` is not defined in this library.
     # Excluded ztrsna because the type `lapack_logical` is not defined in this library.
-    # Excluded ctrsyl because the type `lapack_complex_float` is not defined in this library.
+    fun ctrsyl = ctrsyl_(trana : LibC::Char*, tranb : LibC::Char*, isgn : LibC::Int*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, c : ComplexFloat*, ldc : LibC::Int*, scale : LibC::Float*, info : LibC::Int*)
     fun dtrsyl = dtrsyl_(trana : LibC::Char*, tranb : LibC::Char*, isgn : LibC::Int*, m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, c : LibC::Double*, ldc : LibC::Int*, scale : LibC::Double*, info : LibC::Int*)
     fun strsyl = strsyl_(trana : LibC::Char*, tranb : LibC::Char*, isgn : LibC::Int*, m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, c : LibC::Float*, ldc : LibC::Int*, scale : LibC::Float*, info : LibC::Int*)
-    # Excluded ztrsyl because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctrtri because the type `lapack_complex_float` is not defined in this library.
+    fun ztrsyl = ztrsyl_(trana : LibC::Char*, tranb : LibC::Char*, isgn : LibC::Int*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, c : ComplexDouble*, ldc : LibC::Int*, scale : LibC::Double*, info : LibC::Int*)
+    fun ctrtri = ctrtri_(uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, info : LibC::Int*)
     fun dtrtri = dtrtri_(uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, info : LibC::Int*)
     fun strtri = strtri_(uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, info : LibC::Int*)
-    # Excluded ztrtri because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctrtrs because the type `lapack_complex_float` is not defined in this library.
+    fun ztrtri = ztrtri_(uplo : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, info : LibC::Int*)
+    fun ctrtrs = ctrtrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, b : ComplexFloat*, ldb : LibC::Int*, info : LibC::Int*)
     fun dtrtrs = dtrtrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, b : LibC::Double*, ldb : LibC::Int*, info : LibC::Int*)
     fun strtrs = strtrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, b : LibC::Float*, ldb : LibC::Int*, info : LibC::Int*)
-    # Excluded ztrtrs because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctrttf because the type `lapack_complex_float` is not defined in this library.
+    fun ztrtrs = ztrtrs_(uplo : LibC::Char*, trans : LibC::Char*, diag : LibC::Char*, n : LibC::Int*, nrhs : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, b : ComplexDouble*, ldb : LibC::Int*, info : LibC::Int*)
+    fun ctrttf = ctrttf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, arf : ComplexFloat*, info : LibC::Int*)
     fun dtrttf = dtrttf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, arf : LibC::Double*, info : LibC::Int*)
     fun strttf = strttf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, arf : LibC::Float*, info : LibC::Int*)
-    # Excluded ztrttf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctrttp because the type `lapack_complex_float` is not defined in this library.
+    fun ztrttf = ztrttf_(transr : LibC::Char*, uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, arf : ComplexDouble*, info : LibC::Int*)
+    fun ctrttp = ctrttp_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, ap : ComplexFloat*, info : LibC::Int*)
     fun dtrttp = dtrttp_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, ap : LibC::Double*, info : LibC::Int*)
     fun strttp = strttp_(uplo : LibC::Char*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, ap : LibC::Float*, info : LibC::Int*)
-    # Excluded ztrttp because the type `lapack_complex_double` is not defined in this library.
-    # Excluded ctzrzf because the type `lapack_complex_float` is not defined in this library.
+    fun ztrttp = ztrttp_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, ap : ComplexDouble*, info : LibC::Int*)
+    fun ctzrzf = ctzrzf_(m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
     fun dtzrzf = dtzrzf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Double*, lda : LibC::Int*, tau : LibC::Double*, work : LibC::Double*, lwork : LibC::Int*, info : LibC::Int*)
     fun stzrzf = stzrzf_(m : LibC::Int*, n : LibC::Int*, a : LibC::Float*, lda : LibC::Int*, tau : LibC::Float*, work : LibC::Float*, lwork : LibC::Int*, info : LibC::Int*)
-    # Excluded ztzrzf because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunbdb because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunbdb because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cuncsd because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zuncsd because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cuncsd2by1 because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zuncsd2by1 because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cungbr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zungbr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunghr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunghr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunglq because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunglq because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cungql because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zungql because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cungqr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zungqr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cungrq because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zungrq because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cungtr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zungtr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cungtsqr_row because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zungtsqr_row because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunmbr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunmbr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunmhr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunmhr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunmlq because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunmlq because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunmql because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunmql because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunmqr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunmqr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunmrq because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunmrq because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunmrz because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunmrz because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cunmtr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zunmtr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cupgtr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zupgtr because the type `lapack_complex_double` is not defined in this library.
-    # Excluded cupmtr because the type `lapack_complex_float` is not defined in this library.
-    # Excluded zupmtr because the type `lapack_complex_double` is not defined in this library.
+    fun ztzrzf = ztzrzf_(m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunbdb = cunbdb_(trans : LibC::Char*, signs : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, x11 : ComplexFloat*, ldx11 : LibC::Int*, x12 : ComplexFloat*, ldx12 : LibC::Int*, x21 : ComplexFloat*, ldx21 : LibC::Int*, x22 : ComplexFloat*, ldx22 : LibC::Int*, theta : LibC::Float*, phi : LibC::Float*, taup1 : ComplexFloat*, taup2 : ComplexFloat*, tauq1 : ComplexFloat*, tauq2 : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunbdb = zunbdb_(trans : LibC::Char*, signs : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, x11 : ComplexDouble*, ldx11 : LibC::Int*, x12 : ComplexDouble*, ldx12 : LibC::Int*, x21 : ComplexDouble*, ldx21 : LibC::Int*, x22 : ComplexDouble*, ldx22 : LibC::Int*, theta : LibC::Double*, phi : LibC::Double*, taup1 : ComplexDouble*, taup2 : ComplexDouble*, tauq1 : ComplexDouble*, tauq2 : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cuncsd = cuncsd_(jobu1 : LibC::Char*, jobu2 : LibC::Char*, jobv1t : LibC::Char*, jobv2t : LibC::Char*, trans : LibC::Char*, signs : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, x11 : ComplexFloat*, ldx11 : LibC::Int*, x12 : ComplexFloat*, ldx12 : LibC::Int*, x21 : ComplexFloat*, ldx21 : LibC::Int*, x22 : ComplexFloat*, ldx22 : LibC::Int*, theta : LibC::Float*, u1 : ComplexFloat*, ldu1 : LibC::Int*, u2 : ComplexFloat*, ldu2 : LibC::Int*, v1t : ComplexFloat*, ldv1t : LibC::Int*, v2t : ComplexFloat*, ldv2t : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
+    fun zuncsd = zuncsd_(jobu1 : LibC::Char*, jobu2 : LibC::Char*, jobv1t : LibC::Char*, jobv2t : LibC::Char*, trans : LibC::Char*, signs : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, x11 : ComplexDouble*, ldx11 : LibC::Int*, x12 : ComplexDouble*, ldx12 : LibC::Int*, x21 : ComplexDouble*, ldx21 : LibC::Int*, x22 : ComplexDouble*, ldx22 : LibC::Int*, theta : LibC::Double*, u1 : ComplexDouble*, ldu1 : LibC::Int*, u2 : ComplexDouble*, ldu2 : LibC::Int*, v1t : ComplexDouble*, ldv1t : LibC::Int*, v2t : ComplexDouble*, ldv2t : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
+    fun cuncsd2by1 = cuncsd2by1_(jobu1 : LibC::Char*, jobu2 : LibC::Char*, jobv1t : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, x11 : ComplexFloat*, ldx11 : LibC::Int*, x21 : ComplexFloat*, ldx21 : LibC::Int*, theta : LibC::Float*, u1 : ComplexFloat*, ldu1 : LibC::Int*, u2 : ComplexFloat*, ldu2 : LibC::Int*, v1t : ComplexFloat*, ldv1t : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, rwork : LibC::Float*, lrwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
+    fun zuncsd2by1 = zuncsd2by1_(jobu1 : LibC::Char*, jobu2 : LibC::Char*, jobv1t : LibC::Char*, m : LibC::Int*, p : LibC::Int*, q : LibC::Int*, x11 : ComplexDouble*, ldx11 : LibC::Int*, x21 : ComplexDouble*, ldx21 : LibC::Int*, theta : LibC::Double*, u1 : ComplexDouble*, ldu1 : LibC::Int*, u2 : ComplexDouble*, ldu2 : LibC::Int*, v1t : ComplexDouble*, ldv1t : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, rwork : LibC::Double*, lrwork : LibC::Int*, iwork : LibC::Int*, info : LibC::Int*)
+    fun cungbr = cungbr_(vect : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zungbr = zungbr_(vect : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunghr = cunghr_(n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunghr = zunghr_(n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunglq = cunglq_(m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunglq = zunglq_(m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cungql = cungql_(m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zungql = zungql_(m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cungqr = cungqr_(m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zungqr = zungqr_(m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cungrq = cungrq_(m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zungrq = zungrq_(m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cungtr = cungtr_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zungtr = zungtr_(uplo : LibC::Char*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cungtsqr_row = cungtsqr_row_(m : LibC::Int*, n : LibC::Int*, mb : LibC::Int*, nb : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, t : ComplexFloat*, ldt : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zungtsqr_row = zungtsqr_row_(m : LibC::Int*, n : LibC::Int*, mb : LibC::Int*, nb : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, t : ComplexDouble*, ldt : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunmbr = cunmbr_(vect : LibC::Char*, side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunmbr = zunmbr_(vect : LibC::Char*, side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunmhr = cunmhr_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunmhr = zunmhr_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, ilo : LibC::Int*, ihi : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunmlq = cunmlq_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunmlq = zunmlq_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunmql = cunmql_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunmql = zunmql_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunmqr = cunmqr_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunmqr = zunmqr_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunmrq = cunmrq_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunmrq = zunmrq_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunmrz = cunmrz_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunmrz = zunmrz_(side : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, k : LibC::Int*, l : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cunmtr = cunmtr_(side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexFloat*, lda : LibC::Int*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, lwork : LibC::Int*, info : LibC::Int*)
+    fun zunmtr = zunmtr_(side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, a : ComplexDouble*, lda : LibC::Int*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, lwork : LibC::Int*, info : LibC::Int*)
+    fun cupgtr = cupgtr_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexFloat*, tau : ComplexFloat*, q : ComplexFloat*, ldq : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
+    fun zupgtr = zupgtr_(uplo : LibC::Char*, n : LibC::Int*, ap : ComplexDouble*, tau : ComplexDouble*, q : ComplexDouble*, ldq : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
+    fun cupmtr = cupmtr_(side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, ap : ComplexFloat*, tau : ComplexFloat*, c : ComplexFloat*, ldc : LibC::Int*, work : ComplexFloat*, info : LibC::Int*)
+    fun zupmtr = zupmtr_(side : LibC::Char*, uplo : LibC::Char*, trans : LibC::Char*, m : LibC::Int*, n : LibC::Int*, ap : ComplexDouble*, tau : ComplexDouble*, c : ComplexDouble*, ldc : LibC::Int*, work : ComplexDouble*, info : LibC::Int*)
   end
 end

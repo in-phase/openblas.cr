@@ -3,19 +3,28 @@ require "./raw_bindings/lib_lapack"
 module OpenBLAS
   @[Link("lapack")]
   lib LAPACK
+    struct ComplexDouble
+      real : Float64
+      imag : Float64
+    end
+
+    struct ComplexFloat
+      real : Float32
+      imag : Float32
+    end
   end
 end
 
-module OpenBLAS
-  # Example:
-  m = n = 2
-  a = Slice[1f64, 2f64, 3f64, 4f64]
-  tau = Slice[0f64, 0f64]
-  lwork = 2
-  LAPACK.dgeqrfp(pointerof(m), pointerof(n), a, pointerof(m), Slice[1f64, 1f64], tau, pointerof(lwork), out info)
-  puts info
-  puts tau
-end
+# module OpenBLAS
+#   # Example:
+#   m = n = 2
+#   a = Slice[1f64, 2f64, 3f64, 4f64]
+#   tau = Slice[0f64, 0f64]
+#   lwork = 2
+#   LAPACK.dgeqrfp(pointerof(m), pointerof(n), a, pointerof(m), Slice[1f64, 1f64], tau, pointerof(lwork), out info)
+#   puts info
+#   puts tau
+# end
 
 # module Openblas
 #   VERSION = "0.1.0"

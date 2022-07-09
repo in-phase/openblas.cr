@@ -40,10 +40,10 @@ module OpenBLAS
       Right = 142
     end
 
-    # struct ComplexDouble
-    #   real : Float64
-    #   imag : Float64
-    # end
+    struct ComplexDouble
+      real : Float64
+      imag : Float64
+    end
   end
 
 end

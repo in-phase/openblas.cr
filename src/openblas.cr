@@ -2,7 +2,11 @@ require "./raw_bindings/lib_core"
 require "./raw_bindings/lib_cblas"
 
 module OpenBLAS
+  {% if flag?(:darwin) %}
+  @[Link(framework: "Accelerate")]
+  {% else %}
   @[Link("openblas")]
+  {% end %}
   lib CBLAS
 
     # typedef CBLAS_ORDER CBLAS_LAYOUT;
